@@ -1,15 +1,29 @@
 @layer vetools {
 	.jcalc {
-		--jcalc-border: var(--color-border, #c6c6c6);
-		--jcalc-card-bg: var(--color-bg, #fff);
-		--jcalc-soft-bg: color-mix(in srgb, var(--jcalc-card-bg) 90%, #006bc4 10%);
+		--jcalc-border: #c7c7c7;
+		--jcalc-panel-bg: #fff;
+		--jcalc-card-bg: #f6f9ff;
+		--jcalc-note-bg: #eef3fb;
+		--jcalc-rules-bg: #f8fafc;
+		--jcalc-accent: #006bc4;
+		--jcalc-text-soft: #5f6368;
+	}
+
+	.ve-night-mode .jcalc {
+		--jcalc-border: #3b3b3b;
+		--jcalc-panel-bg: #202020;
+		--jcalc-card-bg: #242b34;
+		--jcalc-note-bg: #2a313b;
+		--jcalc-rules-bg: #242424;
+		--jcalc-accent: #4ea2ff;
+		--jcalc-text-soft: #b8bec5;
 	}
 
 	.jcalc__intro {
 		padding: 12px 14px;
 		border: 1px solid var(--jcalc-border);
 		border-radius: 8px;
-		background: linear-gradient(120deg, var(--jcalc-soft-bg), var(--jcalc-card-bg));
+		background: linear-gradient(120deg, var(--jcalc-card-bg), var(--jcalc-panel-bg));
 	}
 
 	.jcalc__panel {
@@ -17,7 +31,12 @@
 		padding: 14px;
 		border: 1px solid var(--jcalc-border);
 		border-radius: 10px;
-		background: var(--jcalc-card-bg);
+		background: var(--jcalc-panel-bg);
+		box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+	}
+
+	.ve-night-mode .jcalc__panel {
+		box-shadow: 0 1px 2px rgb(0 0 0 / 35%);
 	}
 
 	.jcalc__title {
@@ -43,7 +62,7 @@
 		padding: 12px;
 		border-radius: 8px;
 		border: 1px solid var(--jcalc-border);
-		background: var(--jcalc-soft-bg);
+		background: var(--jcalc-card-bg);
 	}
 
 	.jcalc__controls {
@@ -78,21 +97,21 @@
 	.jcalc__note {
 		margin-top: 8px;
 		padding: 8px;
-		border-left: 3px solid var(--jcalc-border);
-		background: color-mix(in srgb, var(--jcalc-card-bg) 90%, #000 10%);
+		border-left: 3px solid var(--jcalc-accent);
+		background: var(--jcalc-note-bg);
 	}
 
 	.jcalc__rules {
 		padding: 12px;
 		border-radius: 8px;
 		border: 1px dashed var(--jcalc-border);
-		background: color-mix(in srgb, var(--jcalc-card-bg) 97%, #000 3%);
+		background: var(--jcalc-rules-bg);
 	}
 
 	.jcalc__source {
 		margin-bottom: 0;
 		font-size: 12px;
-		opacity: 0.85;
+		color: var(--jcalc-text-soft);
 	}
 
 	@media (max-width: 768px) {
