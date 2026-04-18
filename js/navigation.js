@@ -10,6 +10,7 @@ class NavBar {
 	static _CAT_ADVENTURES = "Adventures";
 	static _CAT_REFERENCES = "References";
 	static _CAT_UTILITIES = "Utilities";
+	static _CAT_CALCULATORS = "Calculadoras";
 	static _CAT_SETTINGS = "Settings";
 	static _CAT_CACHE = "Preload Data";
 
@@ -123,6 +124,9 @@ class NavBar {
 
 		this._addElement_dropdown({category: NavBar._CAT_UTILITIES});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "search.html", aText: "Search"});
+		this._addElement_dropdown({keyPath: [NavBar._CAT_UTILITIES], category: NavBar._CAT_CALCULATORS, isSide: true, page: "jumpcalculators.html"});
+		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES, NavBar._CAT_CALCULATORS], page: "jumpcalculators.html#salto-largo", aText: "Calculadora de Salto Largo"});
+		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES, NavBar._CAT_CALCULATORS], page: "jumpcalculators.html#salto-alto", aText: "Calculadora de Salto Alto"});
 		this._addElement_divider({keyPath: [NavBar._CAT_UTILITIES]});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "blocklist.html", aText: "Content Blocklist"});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "manageprerelease.html", aText: "Prerelease Content Manager"});
