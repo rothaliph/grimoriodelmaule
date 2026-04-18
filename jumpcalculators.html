@@ -15,6 +15,7 @@
 
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/jumpcalculators.css">
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -65,7 +66,7 @@
 <header class="ve-mobile-sm__hidden page__header">
 	<div class="container ve-flex-v-baseline">
 		<h1 class="page__title ve-no-wrap ve-my-0" id="page__title">Calculadoras de Salto</h1>
-		<p class="page__subtitle ve-no-wrap ve-my-0" id="page__subtitle">Reglas y cálculos de salto largo y salto alto para D&D 5e.</p>
+		<p class="page__subtitle ve-no-wrap ve-my-0" id="page__subtitle">Reglas oficiales PHB'24 para Salto Largo y Salto Alto, con resultados en pies y metros.</p>
 	</div>
 </header>
 
@@ -76,68 +77,100 @@
 <div class="cancer__wrp-sidebar cancer__wrp-sidebar cancer__wrp-sidebar-lhs cancer__wrp-sidebar-lhs--scrolling-page cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__sidebar-inner cancer__sidebar-inner--top cancer__wrp-interactive"><!--5ETOOLS_AD_LEFT_1--></div><div class="cancer__sidebar-inner cancer__sidebar-inner--bottom cancer__wrp-interactive"><!--5ETOOLS_AD_LEFT_2--></div></div>
 <div class="cancer__wrp-sidebar cancer__wrp-sidebar-rhs cancer__wrp-sidebar-rhs--scrolling-page cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__sidebar-inner cancer__sidebar-inner--top cancer__wrp-interactive"><!--5ETOOLS_AD_RIGHT_1--></div><div class="cancer__sidebar-inner cancer__sidebar-inner--bottom cancer__wrp-interactive"><!--5ETOOLS_AD_RIGHT_2--></div></div>
 
-<main class="container">
-	<div class="row">
-		<div class="ve-col-12">
-			<p class="ve-my-2">Selecciona tus datos y obtén resultados en ambos sistemas: <strong>D&D 5e (pies)</strong> y <strong>métrico europeo (metros)</strong>.</p>
-		</div>
+<main class="container jcalc">
+	<div class="jcalc__intro ve-my-2">
+		<p class="ve-my-0">Ingresa los valores necesarios y obtén cálculo en sistema de pies y métrico. Las fórmulas siguen exactamente PHB'24.</p>
 	</div>
 
-	<div class="row" id="salto-largo">
-		<div class="ve-col-12">
-			<h3>Calculadora de Salto Largo</h3>
-			<p><strong>Regla de D&amp;D 5e:</strong> con carrera (al menos 10 pies en línea recta), puedes saltar una distancia horizontal en pies igual a tu puntuación de Fuerza. Sin carrera, saltas la mitad de esa distancia.</p>
-			<div class="ve-flex-v-center ve-flex-wrap ve-gap-2">
-				<label class="ve-flex-v-center ve-gap-2" for="ipt-long-str">
-					<span>Fuerza</span>
-					<input id="ipt-long-str" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="1" max="30" value="10">
-				</label>
+	<section class="jcalc__panel" id="salto-largo">
+		<h2 class="jcalc__title">Calculadora de Salto Largo</h2>
+		<div class="jcalc__grid">
+			<div class="jcalc__card">
+				<h3 class="jcalc__subtitle">Datos</h3>
+				<div class="jcalc__controls">
+					<label class="jcalc__control" for="ipt-long-str">
+						<span>Fuerza</span>
+						<input id="ipt-long-str" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="1" max="30" value="10">
+					</label>
+					<label class="jcalc__control" for="ipt-long-obstacle">
+						<span>Altura de obstáculo</span>
+						<input id="ipt-long-obstacle" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="0" step="0.01" value="0">
+					</label>
+					<label class="jcalc__control" for="sel-long-obstacle-unit">
+						<span>Unidad obstáculo</span>
+						<select id="sel-long-obstacle-unit" class="ve-form-control ve-input-xs">
+							<option value="ft">Pies</option>
+							<option value="m">Metros</option>
+						</select>
+					</label>
+					<label class="jcalc__control jcalc__control--checkbox" for="cb-long-difficult">
+						<input id="cb-long-difficult" type="checkbox">
+						<span>El aterrizaje es en terreno difícil</span>
+					</label>
+				</div>
 			</div>
-			<div class="ve-flex-col ve-gap-1 ve-mt-2">
-				<div><strong>Con carrera:</strong> <span id="out-long-run-ft">10.00</span> ft / <span id="out-long-run-m">3.05</span> m</div>
-				<div><strong>Sin carrera:</strong> <span id="out-long-stand-ft">5.00</span> ft / <span id="out-long-stand-m">1.52</span> m</div>
-				<div><strong>Diferencia:</strong> <span id="out-long-diff-ft">5.00</span> ft / <span id="out-long-diff-m">1.52</span> m</div>
-			</div>
-		</div>
-	</div>
-
-	<hr>
-
-	<div class="row" id="salto-alto">
-		<div class="ve-col-12">
-			<h3>Calculadora de Salto Alto</h3>
-			<p><strong>Regla de D&amp;D 5e:</strong> con carrera (al menos 10 pies), saltas hacia arriba una cantidad de pies igual a <em>3 + tu modificador de Fuerza</em>. Sin carrera, saltas la mitad. Durante el salto, puedes extender los brazos la mitad de tu altura por encima de ti.</p>
-			<div class="ve-flex-v-center ve-flex-wrap ve-gap-2">
-				<label class="ve-flex-v-center ve-gap-2" for="ipt-high-str">
-					<span>Fuerza</span>
-					<input id="ipt-high-str" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="1" max="30" value="10">
-				</label>
-				<label class="ve-flex-v-center ve-gap-2" for="sel-unit">
-					<span>Unidad (altura/separación)</span>
-					<select id="sel-unit" class="ve-form-control ve-input-xs">
-						<option value="ft">D&amp;D 5e (pies)</option>
-						<option value="m">Métrico europeo (metros)</option>
-					</select>
-				</label>
-				<label class="ve-flex-v-center ve-gap-2" for="ipt-height">
-					<span>Altura del personaje</span>
-					<input id="ipt-height" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="0" step="0.01" value="5.50">
-				</label>
-				<label class="ve-flex-v-center ve-gap-2" for="ipt-offset">
-					<span>Separación inicial del suelo</span>
-					<input id="ipt-offset" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="0" step="0.01" value="0">
-				</label>
-			</div>
-			<div class="ve-flex-col ve-gap-1 ve-mt-2">
-				<div><strong>Salto con carrera (despegue a pies):</strong> <span id="out-high-run-ft">3.00</span> ft / <span id="out-high-run-m">0.91</span> m</div>
-				<div><strong>Salto sin carrera (despegue a pies):</strong> <span id="out-high-stand-ft">1.50</span> ft / <span id="out-high-stand-m">0.46</span> m</div>
-				<div><strong>Diferencia por carrera:</strong> <span id="out-high-diff-ft">1.50</span> ft / <span id="out-high-diff-m">0.46</span> m</div>
-				<div><strong>Altura total de las manos extendidas (con carrera):</strong> <span id="out-reach-run-ft">11.25</span> ft / <span id="out-reach-run-m">3.43</span> m</div>
-				<div><strong>Altura total de las manos extendidas (sin carrera):</strong> <span id="out-reach-stand-ft">9.75</span> ft / <span id="out-reach-stand-m">2.97</span> m</div>
-				<div><strong>Separación máxima del suelo al final del salto (con carrera):</strong> <span id="out-clearance-run-ft">3.00</span> ft / <span id="out-clearance-run-m">0.91</span> m</div>
+			<div class="jcalc__card">
+				<h3 class="jcalc__subtitle">Resultados</h3>
+				<ul class="jcalc__results ve-my-0">
+					<li><strong>Con carrera (mín. 10 pies):</strong> <span id="out-long-run-ft">10.00</span> ft / <span id="out-long-run-m">3.05</span> m</li>
+					<li><strong>Sin carrera:</strong> <span id="out-long-stand-ft">5.00</span> ft / <span id="out-long-stand-m">1.52</span> m</li>
+					<li><strong>Costo de movimiento (con carrera):</strong> <span id="out-long-cost-ft">10.00</span> ft / <span id="out-long-cost-m">3.05</span> m</li>
+					<li><strong>Obstáculo bajo máximo (¼ del salto con carrera):</strong> <span id="out-long-obstacle-max-ft">2.50</span> ft / <span id="out-long-obstacle-max-m">0.76</span> m</li>
+				</ul>
+				<div class="jcalc__note" id="out-long-obstacle-note">No hay obstáculo configurado.</div>
+				<div class="jcalc__note" id="out-long-difficult-note">Si aterrizas en terreno difícil, debes superar una prueba de Destreza (Acrobacias) CD 10 o quedas Tumbado.</div>
 			</div>
 		</div>
-	</div>
+		<div class="jcalc__rules">
+			<h3 class="jcalc__subtitle">Regla oficial traducida (PHB'24, p. 370)</h3>
+			<p>Cuando haces un <strong>Salto Largo</strong>, saltas horizontalmente una cantidad de pies de hasta tu puntuación de Fuerza, si te mueves al menos 10 pies inmediatamente antes del salto. Cuando haces un Salto Largo en estático, solo puedes saltar la mitad de esa distancia. En cualquier caso, cada pie que saltas cuesta un pie de movimiento.</p>
+			<p>Si aterrizas en terreno difícil, debes superar una prueba de Destreza (Acrobacias) CD 10 o adquieres la condición de Tumbado.</p>
+			<p>Esta regla de Salto Largo asume que la altura del salto no importa, como al saltar sobre un arroyo o un abismo. A discreción del DM, debes superar una prueba de Fuerza (Atletismo) CD 10 para superar un obstáculo bajo (no más alto que una cuarta parte de la distancia del salto). De lo contrario, golpeas el obstáculo.</p>
+			<p class="jcalc__source">Fuente: PHB'24, p. 370. Disponible en SRD 5.2.1 y Reglas Básicas (5.5e/2024).</p>
+		</div>
+	</section>
+
+	<section class="jcalc__panel" id="salto-alto">
+		<h2 class="jcalc__title">Calculadora de Salto Alto</h2>
+		<div class="jcalc__grid">
+			<div class="jcalc__card">
+				<h3 class="jcalc__subtitle">Datos</h3>
+				<div class="jcalc__controls">
+					<label class="jcalc__control" for="ipt-high-str">
+						<span>Fuerza</span>
+						<input id="ipt-high-str" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="1" max="30" value="10">
+					</label>
+					<label class="jcalc__control" for="sel-high-height-unit">
+						<span>Unidad de altura</span>
+						<select id="sel-high-height-unit" class="ve-form-control ve-input-xs">
+							<option value="ft">Pies</option>
+							<option value="m">Metros</option>
+						</select>
+					</label>
+					<label class="jcalc__control" for="ipt-high-height">
+						<span>Altura del personaje</span>
+						<input id="ipt-high-height" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="0" step="0.01" value="5.50">
+					</label>
+				</div>
+			</div>
+			<div class="jcalc__card">
+				<h3 class="jcalc__subtitle">Resultados</h3>
+				<ul class="jcalc__results ve-my-0">
+					<li><strong>Con carrera (mín. 10 pies):</strong> <span id="out-high-run-ft">3.00</span> ft / <span id="out-high-run-m">0.91</span> m</li>
+					<li><strong>Sin carrera:</strong> <span id="out-high-stand-ft">1.50</span> ft / <span id="out-high-stand-m">0.46</span> m</li>
+					<li><strong>Costo de movimiento (con carrera):</strong> <span id="out-high-cost-ft">3.00</span> ft / <span id="out-high-cost-m">0.91</span> m</li>
+					<li><strong>Alcance vertical con brazos (con carrera):</strong> <span id="out-reach-run-ft">11.25</span> ft / <span id="out-reach-run-m">3.43</span> m</li>
+					<li><strong>Alcance vertical con brazos (sin carrera):</strong> <span id="out-reach-stand-ft">9.75</span> ft / <span id="out-reach-stand-m">2.97</span> m</li>
+				</ul>
+			</div>
+		</div>
+		<div class="jcalc__rules">
+			<h3 class="jcalc__subtitle">Regla oficial traducida (PHB'24, p. 368)</h3>
+			<p>Cuando haces un <strong>Salto Alto</strong>, saltas en el aire una cantidad de pies igual a 3 + tu modificador de Fuerza (mínimo 0 pies) si te mueves al menos 10 pies a pie inmediatamente antes del salto. Cuando haces un Salto Alto en estático, solo puedes saltar la mitad de esa distancia. En cualquier caso, cada pie del salto cuesta un pie de movimiento.</p>
+			<p>Durante el salto, puedes extender tus brazos por encima de ti una distancia igual a la mitad de tu altura. Por lo tanto, puedes alcanzar una distancia igual a la altura del salto + 1,5 veces tu altura.</p>
+			<p class="jcalc__source">Fuente: PHB'24, p. 368. Disponible en SRD 5.2.1 y Reglas Básicas (5.5e/2024).</p>
+		</div>
+	</section>
 </main>
 
 <!--5ETOOLS_SCRIPT_ANCHOR-->
