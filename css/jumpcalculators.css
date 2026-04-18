@@ -1,0 +1,114 @@
+@layer vetools {
+	.jcalc {
+		--jcalc-border: var(--color-border, #c6c6c6);
+		--jcalc-card-bg: var(--color-bg, #fff);
+		--jcalc-soft-bg: color-mix(in srgb, var(--jcalc-card-bg) 90%, #006bc4 10%);
+	}
+
+	.jcalc__intro {
+		padding: 12px 14px;
+		border: 1px solid var(--jcalc-border);
+		border-radius: 8px;
+		background: linear-gradient(120deg, var(--jcalc-soft-bg), var(--jcalc-card-bg));
+	}
+
+	.jcalc__panel {
+		margin-bottom: 20px;
+		padding: 14px;
+		border: 1px solid var(--jcalc-border);
+		border-radius: 10px;
+		background: var(--jcalc-card-bg);
+	}
+
+	.jcalc__title {
+		margin-top: 0;
+		margin-bottom: 12px;
+		padding-bottom: 8px;
+		border-bottom: 2px solid var(--jcalc-border);
+	}
+
+	.jcalc__subtitle {
+		margin-top: 0;
+		margin-bottom: 10px;
+	}
+
+	.jcalc__grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin-bottom: 12px;
+	}
+
+	.jcalc__card {
+		padding: 12px;
+		border-radius: 8px;
+		border: 1px solid var(--jcalc-border);
+		background: var(--jcalc-soft-bg);
+	}
+
+	.jcalc__controls {
+		display: grid;
+		gap: 8px;
+	}
+
+	.jcalc__control {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		margin-bottom: 0;
+	}
+
+	.jcalc__control input,
+	.jcalc__control select {
+		text-align: right;
+		max-width: 12rem;
+	}
+
+	.jcalc__control--checkbox {
+		justify-content: flex-start;
+	}
+
+	.jcalc__results {
+		padding-left: 18px;
+		display: grid;
+		gap: 6px;
+	}
+
+	.jcalc__note {
+		margin-top: 8px;
+		padding: 8px;
+		border-left: 3px solid var(--jcalc-border);
+		background: color-mix(in srgb, var(--jcalc-card-bg) 90%, #000 10%);
+	}
+
+	.jcalc__rules {
+		padding: 12px;
+		border-radius: 8px;
+		border: 1px dashed var(--jcalc-border);
+		background: color-mix(in srgb, var(--jcalc-card-bg) 97%, #000 3%);
+	}
+
+	.jcalc__source {
+		margin-bottom: 0;
+		font-size: 12px;
+		opacity: 0.85;
+	}
+
+	@media (max-width: 768px) {
+		.jcalc__grid {
+			grid-template-columns: 1fr;
+		}
+
+		.jcalc__control {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.jcalc__control input,
+		.jcalc__control select {
+			max-width: none;
+			width: 100%;
+		}
+	}
+}
