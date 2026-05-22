@@ -118,6 +118,7 @@ class NavBar {
 		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "psionics.html", aText: "Psionics"});
 		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "spells.html", aText: "Spells"});
 		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "vehicles.html", aText: "Vehicles"});
+		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "grimorio-maulino.html", aText: "Grimorio Maulino"});
 		this._addElement_divider({keyPath: [NavBar._CAT_REFERENCES]});
 		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "recipes.html", aText: "Recipes"});
 		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "homecrafts.html", aText: "Home Crafts"});
