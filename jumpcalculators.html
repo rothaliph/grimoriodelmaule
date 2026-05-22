@@ -171,6 +171,55 @@
 			<p class="jcalc__source">Fuente: PHB'24, p. 368. Disponible en SRD 5.2.1 y Reglas Básicas (5.5e/2024).</p>
 		</div>
 	</section>
+
+	<section class="jcalc__panel" id="tamano-y-altura">
+		<h2 class="jcalc__title">Calculadora de Altura y Tamaño</h2>
+		<div class="jcalc__grid">
+			<div class="jcalc__card">
+				<h3 class="jcalc__subtitle">Conversión de altura</h3>
+				<div class="jcalc__controls">
+					<label class="jcalc__control" for="ipt-size-height">
+						<span>Altura</span>
+						<input id="ipt-size-height" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="0" step="0.01" value="5.50">
+					</label>
+					<label class="jcalc__control" for="sel-size-height-unit">
+						<span>Unidad de entrada</span>
+						<select id="sel-size-height-unit" class="ve-form-control ve-input-xs">
+							<option value="ft">Pies (sistema americano)</option>
+							<option value="m">Metros (sistema métrico)</option>
+						</select>
+					</label>
+				</div>
+				<ul class="jcalc__results ve-mt-2 ve-mb-0">
+					<li><strong>Altura en pies:</strong> <span id="out-size-height-ft">5.50</span> ft</li>
+					<li><strong>Altura en metros:</strong> <span id="out-size-height-m">1.68</span> m</li>
+				</ul>
+				<div class="jcalc__note" id="out-size-category-note">Tamaño sugerido: Medium.</div>
+			</div>
+			<div class="jcalc__card">
+				<h3 class="jcalc__subtitle">Guía de tamaños por altura y espacio en grid de 5 pies</h3>
+				<table class="jcalc__table">
+					<thead>
+					<tr>
+						<th>Tamaño</th>
+						<th>Altura de referencia</th>
+						<th>Espacio en combate</th>
+						<th>Recuadros (5x5 ft)</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr><td>Tiny</td><td>&lt; 2.5 ft (&lt; 0.76 m)</td><td>2.5 ft x 2.5 ft</td><td>1</td></tr>
+					<tr><td>Small</td><td>2 a 4 ft (0.61 a 1.22 m)</td><td>5 ft x 5 ft</td><td>1</td></tr>
+					<tr><td>Medium</td><td>4 a 8 ft (1.22 a 2.44 m)</td><td>5 ft x 5 ft</td><td>1</td></tr>
+					<tr><td>Large</td><td>8 a &lt; 16 ft (2.44 a &lt; 4.88 m)</td><td>10 ft x 10 ft</td><td>4 (2x2)</td></tr>
+					<tr><td>Huge</td><td>16 a &lt; 32 ft (4.88 a &lt; 9.75 m)</td><td>15 ft x 15 ft</td><td>9 (3x3)</td></tr>
+					<tr><td>Gargantuan</td><td>&gt; 32 ft (&gt; 9.75 m)</td><td>20 ft x 20 ft o más</td><td>16+ (4x4 o más)</td></tr>
+					</tbody>
+				</table>
+				<p class="jcalc__source ve-mt-2">Nota: criaturas entre 2 ft y 2.5 ft pueden considerarse Tiny o Small según criterio del DM. En reglas oficiales, el tamaño define su espacio en combate y la altura exacta puede variar por criatura.</p>
+			</div>
+		</div>
+	</section>
 </main>
 
 <!--5ETOOLS_SCRIPT_ANCHOR-->

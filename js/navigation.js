@@ -127,6 +127,7 @@ class NavBar {
 		this._addElement_dropdown({keyPath: [NavBar._CAT_UTILITIES], category: NavBar._CAT_CALCULATORS, isSide: true, page: "jumpcalculators.html"});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES, NavBar._CAT_CALCULATORS], page: "jumpcalculators.html#salto-largo", aText: "Calculadora de Salto Largo"});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES, NavBar._CAT_CALCULATORS], page: "jumpcalculators.html#salto-alto", aText: "Calculadora de Salto Alto"});
+		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES, NavBar._CAT_CALCULATORS], page: "jumpcalculators.html#tamano-y-altura", aText: "Calculadora de Altura y Tamaño"});
 		this._addElement_divider({keyPath: [NavBar._CAT_UTILITIES]});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "blocklist.html", aText: "Content Blocklist"});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "manageprerelease.html", aText: "Prerelease Content Manager"});

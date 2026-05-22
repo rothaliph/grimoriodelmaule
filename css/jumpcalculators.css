@@ -114,6 +114,19 @@
 		color: var(--jcalc-text-soft);
 	}
 
+	.jcalc__table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	.jcalc__table th,
+	.jcalc__table td {
+		padding: 6px 8px;
+		border: 1px solid var(--jcalc-border);
+		text-align: left;
+		vertical-align: top;
+	}
+
 	@media (max-width: 768px) {
 		.jcalc__grid {
 			grid-template-columns: 1fr;

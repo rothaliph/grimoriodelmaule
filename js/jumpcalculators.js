@@ -98,6 +98,28 @@ const updateHighJump = () => {
 	setText("out-reach-stand-m", toMeters(totalReachStandFt));
 };
 
+const getSizeCategory = heightFt => {
+	if (heightFt < 2) return "Tiny";
+	if (heightFt < 2.5) return "Tiny o Small";
+	if (heightFt < 4) return "Small";
+	if (heightFt < 8) return "Medium";
+	if (heightFt < 16) return "Large";
+	if (heightFt < 32) return "Huge";
+	return "Gargantuan";
+};
+
+const updateSizeHeight = () => {
+	const heightUnit = document.getElementById("sel-size-height-unit").value;
+	const rawHeight = getSanitizedLength(document.getElementById("ipt-size-height").value);
+	const heightFt = heightUnit === "m" ? toFeet(rawHeight) : rawHeight;
+
+	setText("out-size-height-ft", heightFt);
+	setText("out-size-height-m", toMeters(heightFt));
+
+	const size = getSizeCategory(heightFt);
+	document.getElementById("out-size-category-note").textContent = `Tamaño sugerido por altura: ${size}.`;
+};
+
 window.addEventListener("load", () => {
 	[
 		"ipt-long-str",
@@ -107,15 +129,19 @@ window.addEventListener("load", () => {
 		"ipt-high-str",
 		"sel-high-height-unit",
 		"ipt-high-height",
+		"ipt-size-height",
+		"sel-size-height-unit",
 	].forEach(id => {
 		document.getElementById(id).addEventListener("input", () => {
 			updateLongJump();
 			updateHighJump();
+			updateSizeHeight();
 		});
 	});
 
 	updateLongJump();
 	updateHighJump();
+	updateSizeHeight();
 
 	window.dispatchEvent(new Event("toolsLoaded"));
 });
