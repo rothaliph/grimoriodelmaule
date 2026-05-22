@@ -1,0 +1,20 @@
+{
+	"campaigns": [
+		{
+			"id": "cronicas-del-maule",
+			"name": "Crónicas del Maule",
+			"characters": [
+				{
+					"id": "alaric",
+					"name": "Alaric, Guardián de Talca",
+					"html": "alaric.html"
+				},
+				{
+					"id": "isyra",
+					"name": "Isyra, Voz del Río Claro",
+					"html": "isyra.html"
+				}
+			]
+		}
+	]
+}
