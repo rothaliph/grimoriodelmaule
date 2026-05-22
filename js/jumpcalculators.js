@@ -99,8 +99,9 @@ const updateHighJump = () => {
 };
 
 const getSizeCategory = heightFt => {
-	if (heightFt < 4) return "Tiny";
-	if (heightFt < 6) return "Small";
+	if (heightFt < 2) return "Tiny";
+	if (heightFt < 2.5) return "Tiny o Small";
+	if (heightFt < 4) return "Small";
 	if (heightFt < 8) return "Medium";
 	if (heightFt < 16) return "Large";
 	if (heightFt < 32) return "Huge";
