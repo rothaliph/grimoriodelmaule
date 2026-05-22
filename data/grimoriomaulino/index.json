@@ -1,18 +1,59 @@
 {
 	"campaigns": [
 		{
-			"id": "cronicas-del-maule",
-			"name": "Crónicas del Maule",
+			"id": "phandelver-and-below",
+			"name": "Phandelver... and below",
 			"characters": [
 				{
-					"id": "alaric",
-					"name": "Alaric, Guardián de Talca",
-					"html": "alaric.html"
+					"id": "mognar",
+					"name": "Mognar",
+					"html": "mognar.html"
 				},
 				{
-					"id": "isyra",
-					"name": "Isyra, Voz del Río Claro",
-					"html": "isyra.html"
+					"id": "connery",
+					"name": "Connery Sunscar",
+					"html": "connery.html"
+				},
+				{
+					"id": "sachi",
+					"name": "Sachi",
+					"html": "sachi.html"
+				},
+				{
+					"id": "vellum-bellorosso",
+					"name": "Vellum Bellorosso",
+					"html": "vellum-bellorosso.html"
+				}
+			]
+		},
+		{
+			"id": "golden-vault-spelljammers",
+			"name": "Golden Vault: Spelljammers",
+			"characters": [
+				{
+					"id": "polux",
+					"name": "Polux",
+					"html": "polux.html"
+				},
+				{
+					"id": "arrayan-myrtle",
+					"name": "Arrayan Myrtle",
+					"html": "arrayan-myrtle.html"
+				},
+				{
+					"id": "haggar",
+					"name": "Haggar",
+					"html": "haggar.html"
+				},
+				{
+					"id": "gaston-labelle",
+					"name": "Gaston Labelle",
+					"html": "gaston-labelle.html"
+				},
+				{
+					"id": "kyuzo",
+					"name": "Kyuzo",
+					"html": "kyuzo.html"
 				}
 			]
 		}
