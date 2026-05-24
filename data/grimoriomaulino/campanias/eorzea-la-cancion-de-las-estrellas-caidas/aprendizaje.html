@@ -7,17 +7,42 @@
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=MedievalSharp&display=swap" rel="stylesheet">
 <style>
   :root {
-    --parchment: #f2e8d5;
-    --parchment-dark: #e8d9be;
-    --parchment-darker: #d9c8a0;
-    --ink: #1a1208;
-    --maroon: #5c1a1a;
-    --gold: #8b6914;
-    --gold-light: #c9a227;
-    --rule-color: #8b6914;
-    --table-alt: rgba(139, 105, 20, 0.10);
-    --table-header: rgba(92, 26, 26, 0.13);
-    --shadow: rgba(30,15,0,0.18);
+    color-scheme: light dark;
+    --parchment: #f5f1e7;
+    --ink: #1f2328;
+    --accent: #7a2f2f;
+    --gold: #8f6a24;
+    --gold-light: #b88a33;
+    --table-alt: rgba(143, 106, 36, 0.10);
+    --table-header: rgba(122, 47, 47, 0.13);
+    --page-shadow: rgba(18, 22, 28, 0.28);
+    --border-highlight: #d2b063;
+    --border-shadow: #6c4a1c;
+    --texture-1: rgba(184, 138, 51, 0.16);
+    --texture-2: rgba(122, 94, 38, 0.12);
+    --texture-3: rgba(255, 249, 232, 0.18);
+    --restriction-bg: rgba(122, 47, 47, 0.06);
+    --note: #4f3a11;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --parchment: #22252d;
+      --ink: #e7ebf0;
+      --accent: #d9a7a7;
+      --gold: #cfad63;
+      --gold-light: #f0c578;
+      --table-alt: rgba(240, 197, 120, 0.08);
+      --table-header: rgba(217, 167, 167, 0.18);
+      --page-shadow: rgba(0, 0, 0, 0.55);
+      --border-highlight: #f0c578;
+      --border-shadow: #6d5630;
+      --texture-1: rgba(240, 197, 120, 0.09);
+      --texture-2: rgba(217, 167, 167, 0.08);
+      --texture-3: rgba(255, 255, 255, 0.04);
+      --restriction-bg: rgba(217, 167, 167, 0.12);
+      --note: #d8c59c;
+    }
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,7 +68,7 @@
     margin: 20px auto;
     background: var(--parchment);
     position: relative;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.5), inset 0 0 80px rgba(139,105,20,0.08);
+    box-shadow: 0 8px 40px var(--page-shadow), inset 0 0 80px var(--texture-1);
     overflow: hidden;
   }
 
@@ -53,9 +78,9 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse at 10% 10%, rgba(200,170,100,0.18) 0%, transparent 50%),
-      radial-gradient(ellipse at 90% 90%, rgba(160,120,60,0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, rgba(255,240,200,0.08) 0%, transparent 70%);
+      radial-gradient(ellipse at 10% 10%, var(--texture-1) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 90%, var(--texture-2) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, var(--texture-3) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
   }
@@ -67,7 +92,7 @@
     inset: 0;
     border: 3px solid transparent;
     background: linear-gradient(var(--parchment), var(--parchment)) padding-box,
-                linear-gradient(135deg, #c9a227, #8b6914, #c9a227, #5c3a0a, #c9a227) border-box;
+                linear-gradient(135deg, var(--border-highlight), var(--gold), var(--border-highlight), var(--border-shadow), var(--border-highlight)) border-box;
     pointer-events: none;
     z-index: 1;
   }
@@ -83,7 +108,7 @@
     text-align: center;
     font-family: 'IM Fell English SC', 'Georgia', serif;
     font-size: 26pt;
-    color: var(--maroon);
+    color: var(--accent);
     letter-spacing: 0.04em;
     margin-bottom: 10px;
     text-shadow: 1px 1px 0 rgba(139,105,20,0.25);
@@ -158,7 +183,7 @@
   .section-heading {
     font-family: 'IM Fell English SC', serif;
     font-size: 13pt;
-    color: var(--maroon);
+    color: var(--accent);
     margin-top: 10px;
     margin-bottom: 3px;
     letter-spacing: 0.02em;
@@ -169,7 +194,7 @@
   .subsection-heading {
     font-family: 'IM Fell English SC', serif;
     font-size: 10.5pt;
-    color: var(--maroon);
+    color: var(--accent);
     margin-top: 8px;
     margin-bottom: 3px;
     letter-spacing: 0.01em;
@@ -254,7 +279,7 @@
   .note {
     font-size: 8pt;
     font-style: italic;
-    color: #3a2800;
+    color: var(--note);
     margin: 4px 0;
   }
 
@@ -278,7 +303,7 @@
     text-align: center;
     margin-top: 14px;
     font-size: 8pt;
-    color: var(--maroon);
+    color: var(--accent);
     font-family: 'IM Fell English SC', serif;
     letter-spacing: 0.05em;
     opacity: 0.8;
@@ -297,10 +322,10 @@
 
   /* Restriction box */
   .restriction-box {
-    border-left: 3px solid var(--maroon);
+    border-left: 3px solid var(--accent);
     padding: 4px 8px;
     margin: 4px 0;
-    background: rgba(92,26,26,0.05);
+    background: var(--restriction-bg);
     font-size: 8.5pt;
   }
 
