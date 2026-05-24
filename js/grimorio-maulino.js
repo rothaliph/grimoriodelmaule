@@ -9,6 +9,7 @@ class GrimorioMaulino {
 		};
 		this._index = null;
 		this._campaigns = {};
+		this._expandedSections = {};
 
 		this._subtitle = document.getElementById("page__subtitle");
 		this._menu = document.getElementById("grimorio-menu");
@@ -59,6 +60,8 @@ class GrimorioMaulino {
 		this._state.campaignId = campaign.id;
 		this._state.sectionId = section.id;
 		this._state.pageId = page.id;
+
+		this._expandedSections[`${campaign.id}__${section.id}`] = true;
 
 		const nextHash = `${campaign.id}/${section.id}/${page.id}`;
 		if (window.location.hash.slice(1) !== nextHash) {
@@ -116,18 +119,16 @@ class GrimorioMaulino {
 				const eleSection = document.createElement("div");
 				eleSection.className = "ve-flex-col";
 
-				const eleSectionHeader = document.createElement("div");
+				const eleSectionHeader = document.createElement("a");
+				eleSectionHeader.href = `#${campaign.id}/${section.id}`;
 				eleSectionHeader.className = "ve-flex-v-center ve-lst__row-inner";
+				eleSectionHeader.title = section.name;
 
-				const eleSectionToggle = document.createElement("button");
-				eleSectionToggle.type = "button";
+				const eleSectionToggle = document.createElement("span");
 				eleSectionToggle.className = "ve-px-2 ve-bold";
 				eleSectionHeader.appendChild(eleSectionToggle);
 
-				const eleSectionName = document.createElement("a");
-				eleSectionName.href = `#${campaign.id}/${section.id}`;
-				eleSectionName.className = "ve-col-12";
-				eleSectionName.title = section.name;
+				const eleSectionName = document.createElement("span");
 				eleSectionName.textContent = section.name;
 				eleSectionHeader.appendChild(eleSectionName);
 
@@ -136,16 +137,19 @@ class GrimorioMaulino {
 				const elePageList = document.createElement("div");
 				elePageList.className = "ve-flex-col ve-pl-4 ve-ml-2";
 
-				const isExpanded = this._state.campaignId === campaign.id && this._state.sectionId === section.id;
+				const sectionKey = `${campaign.id}__${section.id}`;
+				const isExpanded = this._expandedSections[sectionKey] != null
+					? this._expandedSections[sectionKey]
+					: this._state.campaignId === campaign.id && this._state.sectionId === section.id;
 				eleSectionToggle.textContent = isExpanded ? "[−]" : "[+]";
 				elePageList.style.display = isExpanded ? "" : "none";
 
-				eleSectionToggle.addEventListener("click", evt => {
+				eleSectionHeader.addEventListener("click", evt => {
 					evt.preventDefault();
-					evt.stopPropagation();
 					const isCollapsed = elePageList.style.display === "none";
 					elePageList.style.display = isCollapsed ? "" : "none";
 					eleSectionToggle.textContent = isCollapsed ? "[−]" : "[+]";
+					this._expandedSections[sectionKey] = isCollapsed;
 				});
 
 				for (const page of section.paginas || []) {
