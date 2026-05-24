@@ -183,11 +183,28 @@ class GrimorioMaulino {
 	async _pLoadPage ({campaign, section, page}) {
 		this._subtitle.textContent = `Campaña: ${campaign.name} · Sección: ${section.name} · Página: ${page.name}`;
 
-		const htmlPath = `data/grimoriomaulino/campanias/${campaign.id}/${page.html}`;
-		const response = await fetch(htmlPath);
-		if (!response.ok) return this._renderEmpty(`No se pudo cargar la página (${htmlPath}).`);
+		const pageResource = page.html || page.image;
+		if (!pageResource) return this._renderEmpty(`La página "${page.name}" no tiene recurso configurado ("html" o "image").`);
+
+		const resourcePath = `data/grimoriomaulino/campanias/${campaign.id}/${pageResource}`;
+
+		if (page.image || this._isImagePath(pageResource)) {
+			this._renderImagePage({resourcePath, pageName: page.name});
+			return;
+		}
+
+		const response = await fetch(resourcePath);
+		if (!response.ok) return this._renderEmpty(`No se pudo cargar la página (${resourcePath}).`);
 		const html = await response.text();
 		this._content.innerHTML = html;
+	}
+
+	_isImagePath (path) {
+		return /\.(?:avif|bmp|gif|jpe?g|png|svg|webp)$/i.test(path || "");
+	}
+
+	_renderImagePage ({resourcePath, pageName}) {
+		this._content.innerHTML = `<div class="ve-flex-h-center"><img class="ve-w-100" src="${resourcePath}" alt="${pageName}"></div>`;
 	}
 
 	_renderEmpty (message) {
