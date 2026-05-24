@@ -134,7 +134,7 @@ class GrimorioMaulino {
 				eleSection.appendChild(eleSectionHeader);
 
 				const elePageList = document.createElement("div");
-				elePageList.className = "ve-flex-col ve-pl-4 ve-ml-2";
+				elePageList.className = "ve-flex-col ve-pl-4 ve-ml-2 pagelistsubsection";
 
 				const sectionKey = `${campaign.id}__${section.id}`;
 				const isExpanded = this._expandedSections[sectionKey] != null
