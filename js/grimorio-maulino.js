@@ -119,8 +119,7 @@ class GrimorioMaulino {
 				const eleSection = document.createElement("div");
 				eleSection.className = "ve-flex-col";
 
-				const eleSectionHeader = document.createElement("a");
-				eleSectionHeader.href = `#${campaign.id}/${section.id}`;
+				const eleSectionHeader = document.createElement("div");
 				eleSectionHeader.className = "ve-flex-v-center ve-lst__row-inner";
 				eleSectionHeader.title = section.name;
 
@@ -144,8 +143,7 @@ class GrimorioMaulino {
 				eleSectionToggle.textContent = isExpanded ? "[−]" : "[+]";
 				elePageList.style.display = isExpanded ? "" : "none";
 
-				eleSectionHeader.addEventListener("click", evt => {
-					evt.preventDefault();
+				eleSectionHeader.addEventListener("click", () => {
 					const isCollapsed = elePageList.style.display === "none";
 					elePageList.style.display = isCollapsed ? "" : "none";
 					eleSectionToggle.textContent = isCollapsed ? "[−]" : "[+]";
