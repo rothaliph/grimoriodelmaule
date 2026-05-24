@@ -4,9 +4,12 @@ class GrimorioMaulino {
 	constructor () {
 		this._state = {
 			campaignId: null,
-			characterId: null,
+			sectionId: null,
+			pageId: null,
 		};
 		this._index = null;
+		this._campaigns = {};
+		this._expandedSections = {};
 
 		this._subtitle = document.getElementById("page__subtitle");
 		this._menu = document.getElementById("grimorio-menu");
@@ -15,8 +18,20 @@ class GrimorioMaulino {
 
 	async pInit () {
 		this._index = await this._pLoadIndex();
+		await this._pLoadCampaigns();
 		this._renderMenu();
 		this._initHashHandling();
+	}
+
+	async _pLoadCampaigns () {
+		for (const campaignMeta of this._index?.campaigns || []) {
+			if (!campaignMeta.path) continue;
+
+			const response = await fetch(campaignMeta.path);
+			if (!response.ok) throw new Error(`No se pudo cargar ${campaignMeta.path}`);
+			const campaign = await response.json();
+			this._campaigns[campaign.id] = campaign;
+		}
 	}
 
 	async _pLoadIndex () {
@@ -31,77 +46,148 @@ class GrimorioMaulino {
 	}
 
 	async _pApplyHash () {
-		const [campaignId, characterId] = (window.location.hash.slice(1) || "").split("/");
+		const [campaignId, sectionId, pageId] = (window.location.hash.slice(1) || "").split("/");
 
-		const campaign = this._getCampaignById(campaignId) || this._index?.campaigns?.[0];
+		const campaign = this._getCampaignById(campaignId) || this._getFirstCampaign();
 		if (!campaign) return this._renderEmpty("No hay campañas configuradas en el índice.");
 
-		const character = this._getCharacterById(campaign, characterId) || campaign.characters?.[0];
-		if (!character) return this._renderEmpty(`La campaña "${campaign.name}" no tiene personajes.`);
+		const section = this._getSectionById(campaign, sectionId) || campaign.secciones?.[0];
+		if (!section) return this._renderEmpty(`La campaña "${campaign.name}" no tiene secciones.`);
+
+		const page = this._getPageById(section, pageId) || section.paginas?.[0];
+		if (!page) return this._renderEmpty(`La sección "${section.name}" no tiene páginas.`);
 
 		this._state.campaignId = campaign.id;
-		this._state.characterId = character.id;
+		this._state.sectionId = section.id;
+		this._state.pageId = page.id;
 
-		const nextHash = `${campaign.id}/${character.id}`;
+		this._expandedSections[`${campaign.id}__${section.id}`] = true;
+
+		const nextHash = `${campaign.id}/${section.id}/${page.id}`;
 		if (window.location.hash.slice(1) !== nextHash) {
 			window.location.hash = nextHash;
 			return;
 		}
 
 		this._renderMenu();
-		await this._pLoadCharacter({campaign, character});
+		await this._pLoadPage({campaign, section, page});
 	}
 
 	_getCampaignById (campaignId) {
-		return this._index?.campaigns?.find(it => it.id === campaignId);
+		return this._campaigns[campaignId];
 	}
 
-	_getCharacterById (campaign, characterId) {
-		return campaign?.characters?.find(it => it.id === characterId);
+	_getFirstCampaign () {
+		const firstId = this._index?.campaigns?.[0]?.id;
+		return firstId ? this._campaigns[firstId] : null;
+	}
+
+	_getSectionById (campaign, sectionId) {
+		return campaign?.secciones?.find(it => it.id === sectionId);
+	}
+
+	_getPageById (section, pageId) {
+		return section?.paginas?.find(it => it.id === pageId);
 	}
 
 	_renderMenu () {
 		this._menu.innerHTML = "";
 
-		for (const campaign of this._index?.campaigns || []) {
+		for (const campaignMeta of this._index?.campaigns || []) {
+			const campaign = this._campaigns[campaignMeta.id];
+			if (!campaign) continue;
+
 			const eleCampaign = document.createElement("div");
-			eleCampaign.className = "ve-flex-col ve-mb-2";
+			eleCampaign.className = "contents-item";
+			eleCampaign.dataset.bookid = campaign.id;
 
-			const eleCampaignTitle = document.createElement("div");
-			eleCampaignTitle.className = "book-head-header";
+			const eleHeader = document.createElement("div");
+			eleHeader.className = "bk__contents-header";
+
+			const eleCampaignTitle = document.createElement("a");
+			eleCampaignTitle.href = `#${campaign.id}`;
+			eleCampaignTitle.className = "bk__contents_header_link ve-lst__wrp-cells ve-lst__row-inner ve-bold";
+			eleCampaignTitle.title = campaign.name;
 			eleCampaignTitle.textContent = campaign.name;
-			eleCampaign.appendChild(eleCampaignTitle);
+			eleHeader.appendChild(eleCampaignTitle);
+			eleCampaign.appendChild(eleHeader);
 
-			for (const character of campaign.characters || []) {
-				const eleCharacter = document.createElement("a");
-				eleCharacter.href = `#${campaign.id}/${character.id}`;
-				eleCharacter.className = "lst--border lst__row-inner";
-				eleCharacter.textContent = character.name;
+			const eleSectionList = document.createElement("div");
+			eleSectionList.className = "bk-contents ve-pl-4 ve-ml-2";
 
-				if (this._state.campaignId === campaign.id && this._state.characterId === character.id) {
-					eleCharacter.classList.add("list-multi-selected");
+			for (const section of campaign.secciones || []) {
+				const eleSection = document.createElement("div");
+				eleSection.className = "ve-flex-col";
+
+				const eleSectionHeader = document.createElement("div");
+				eleSectionHeader.className = "ve-flex-v-center ve-lst__row-inner";
+				eleSectionHeader.title = section.name;
+
+				const eleSectionToggle = document.createElement("span");
+				eleSectionToggle.className = "ve-px-2 ve-bold";
+				eleSectionHeader.appendChild(eleSectionToggle);
+
+				const eleSectionName = document.createElement("span");
+				eleSectionName.textContent = section.name;
+				eleSectionHeader.appendChild(eleSectionName);
+
+				eleSection.appendChild(eleSectionHeader);
+
+				const elePageList = document.createElement("div");
+				elePageList.className = "ve-flex-col ve-pl-4 ve-ml-2";
+
+				const sectionKey = `${campaign.id}__${section.id}`;
+				const isExpanded = this._expandedSections[sectionKey] != null
+					? this._expandedSections[sectionKey]
+					: this._state.campaignId === campaign.id && this._state.sectionId === section.id;
+				eleSectionToggle.textContent = isExpanded ? "[−]" : "[+]";
+				if (isExpanded) elePageList.style.removeProperty("display");
+				else elePageList.style.setProperty("display", "none", "important");
+
+				eleSectionHeader.addEventListener("click", () => {
+					const isCollapsed = elePageList.style.display === "none";
+					if (isCollapsed) elePageList.style.removeProperty("display");
+					else elePageList.style.setProperty("display", "none", "important");
+					eleSectionToggle.textContent = isCollapsed ? "[−]" : "[+]";
+					this._expandedSections[sectionKey] = isCollapsed;
+				});
+
+				for (const page of section.paginas || []) {
+					const elePage = document.createElement("a");
+					elePage.href = `#${campaign.id}/${section.id}/${page.id}`;
+					elePage.className = "lst--border ve-lst__row-inner";
+					elePage.textContent = page.name;
+
+					if (this._state.campaignId === campaign.id && this._state.sectionId === section.id && this._state.pageId === page.id) {
+						elePage.classList.add("list-multi-selected");
+					}
+
+					elePageList.appendChild(elePage);
 				}
 
-				eleCampaign.appendChild(eleCharacter);
+				eleSection.appendChild(elePageList);
+				eleSectionList.appendChild(eleSection);
 			}
+
+			eleCampaign.appendChild(eleSectionList);
 
 			this._menu.appendChild(eleCampaign);
 		}
 	}
 
-	async _pLoadCharacter ({campaign, character}) {
-		this._subtitle.textContent = `Campaña: ${campaign.name} · Personaje: ${character.name}`;
+	async _pLoadPage ({campaign, section, page}) {
+		this._subtitle.textContent = `Campaña: ${campaign.name} · Sección: ${section.name} · Página: ${page.name}`;
 
-		const htmlPath = `data/grimoriomaulino/campanias/${campaign.id}/${character.html}`;
+		const htmlPath = `data/grimoriomaulino/campanias/${campaign.id}/${page.html}`;
 		const response = await fetch(htmlPath);
-		if (!response.ok) return this._renderEmpty(`No se pudo cargar el personaje (${htmlPath}).`);
+		if (!response.ok) return this._renderEmpty(`No se pudo cargar la página (${htmlPath}).`);
 		const html = await response.text();
 		this._content.innerHTML = html;
 	}
 
 	_renderEmpty (message) {
 		this._content.innerHTML = `<p class="initial-message initial-message--med">${message}</p>`;
-		this._subtitle.textContent = `Campaña: ${campaign.name} · Personaje: ${character.name}`;
+		this._subtitle.textContent = message;
 	}
 }
 

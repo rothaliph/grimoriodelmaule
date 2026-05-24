@@ -1,0 +1,45 @@
+{
+	"id": "golden-vault-spelljammers",
+	"name": "Golden Vault: Spelljammers",
+	"description": "Tripulación y expedientes de la campaña de golpes interestelares.",
+	"image": "https://placehold.co/1200x675?text=Golden+Vault+Spelljammers",
+	"secciones": [
+		{
+			"id": "tripulacion",
+			"name": "Tripulación",
+			"paginas": [
+				{
+					"id": "polux",
+					"name": "Polux",
+					"html": "polux.html"
+				},
+				{
+					"id": "arrayan-myrtle",
+					"name": "Arrayan Myrtle",
+					"html": "arrayan-myrtle.html"
+				},
+				{
+					"id": "haggar",
+					"name": "Haggar",
+					"html": "haggar.html"
+				}
+			]
+		},
+		{
+			"id": "aliados",
+			"name": "Aliados",
+			"paginas": [
+				{
+					"id": "gaston-labelle",
+					"name": "Gaston Labelle",
+					"html": "gaston-labelle.html"
+				},
+				{
+					"id": "kyuzo",
+					"name": "Kyuzo",
+					"html": "kyuzo.html"
+				}
+			]
+		}
+	]
+}
