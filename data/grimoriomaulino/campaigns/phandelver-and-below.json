@@ -2,7 +2,7 @@
 	"id": "phandelver-and-below",
 	"name": "Phandelver... and below",
 	"description": "Aventuras y registro de personajes de la campaña principal en Phandalin.",
-	"image": "https://placehold.co/1200x675?text=Phandelver+and+Below",
+	"image": "phandelver-and-below/placeholder.png",
 	"secciones": [
 		{
 			"id": "personajes-principales",

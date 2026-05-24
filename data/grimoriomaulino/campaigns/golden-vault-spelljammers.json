@@ -2,7 +2,7 @@
 	"id": "golden-vault-spelljammers",
 	"name": "Golden Vault: Spelljammers",
 	"description": "Tripulación y expedientes de la campaña de golpes interestelares.",
-	"image": "https://placehold.co/1200x675?text=Golden+Vault+Spelljammers",
+	"image": "golden-vault-spelljammers/placeholder.png",
 	"secciones": [
 		{
 			"id": "tripulacion",
