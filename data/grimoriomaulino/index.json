@@ -3,59 +3,12 @@
 		{
 			"id": "phandelver-and-below",
 			"name": "Phandelver... and below",
-			"characters": [
-				{
-					"id": "mognar",
-					"name": "Mognar",
-					"html": "mognar.html"
-				},
-				{
-					"id": "connery",
-					"name": "Connery Sunscar",
-					"html": "connery.html"
-				},
-				{
-					"id": "sachi",
-					"name": "Sachi",
-					"html": "sachi.html"
-				},
-				{
-					"id": "vellum-bellorosso",
-					"name": "Vellum Bellorosso",
-					"html": "vellum-bellorosso.html"
-				}
-			]
+			"path": "data/grimoriomaulino/campaigns/phandelver-and-below.json"
 		},
 		{
 			"id": "golden-vault-spelljammers",
 			"name": "Golden Vault: Spelljammers",
-			"characters": [
-				{
-					"id": "polux",
-					"name": "Polux",
-					"html": "polux.html"
-				},
-				{
-					"id": "arrayan-myrtle",
-					"name": "Arrayan Myrtle",
-					"html": "arrayan-myrtle.html"
-				},
-				{
-					"id": "haggar",
-					"name": "Haggar",
-					"html": "haggar.html"
-				},
-				{
-					"id": "gaston-labelle",
-					"name": "Gaston Labelle",
-					"html": "gaston-labelle.html"
-				},
-				{
-					"id": "kyuzo",
-					"name": "Kyuzo",
-					"html": "kyuzo.html"
-				}
-			]
+			"path": "data/grimoriomaulino/campaigns/golden-vault-spelljammers.json"
 		}
 	]
 }

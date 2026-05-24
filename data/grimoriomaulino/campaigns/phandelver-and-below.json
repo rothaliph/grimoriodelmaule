@@ -1,0 +1,40 @@
+{
+	"id": "phandelver-and-below",
+	"name": "Phandelver... and below",
+	"description": "Aventuras y registro de personajes de la campaña principal en Phandalin.",
+	"image": "https://placehold.co/1200x675?text=Phandelver+and+Below",
+	"secciones": [
+		{
+			"id": "personajes-principales",
+			"name": "Personajes principales",
+			"paginas": [
+				{
+					"id": "mognar",
+					"name": "Mognar",
+					"html": "mognar.html"
+				},
+				{
+					"id": "connery",
+					"name": "Connery Sunscar",
+					"html": "connery.html"
+				}
+			]
+		},
+		{
+			"id": "personajes-secundarios",
+			"name": "Personajes secundarios",
+			"paginas": [
+				{
+					"id": "sachi",
+					"name": "Sachi",
+					"html": "sachi.html"
+				},
+				{
+					"id": "vellum-bellorosso",
+					"name": "Vellum Bellorosso",
+					"html": "vellum-bellorosso.html"
+				}
+			]
+		}
+	]
+}

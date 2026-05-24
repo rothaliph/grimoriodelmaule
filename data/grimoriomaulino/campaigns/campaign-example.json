@@ -1,0 +1,19 @@
+{
+	"id": "mi-campana",
+	"name": "Mi Campaña de Ejemplo",
+	"description": "Plantilla base para nuevas campañas del Grimorio Maulino.",
+	"image": "https://placehold.co/1200x675?text=Mi+Campana",
+	"secciones": [
+		{
+			"id": "seccion-1",
+			"name": "Sección 1",
+			"paginas": [
+				{
+					"id": "pagina-1",
+					"name": "Página 1",
+					"html": "pagina-1.html"
+				}
+			]
+		}
+	]
+}
