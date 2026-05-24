@@ -173,6 +173,12 @@ class GrimorioMaulino {
 
 			this._menu.appendChild(eleCampaign);
 		}
+
+		const eleBack = document.createElement("a");
+		eleBack.href = "grimorio-maulino-index.html";
+		eleBack.className = "ve-btn ve-btn-default ve-mt-3";
+		eleBack.textContent = "Volver a otras campañas";
+		this._menu.appendChild(eleBack);
 	}
 
 	async _pLoadPage ({campaign, section, page}) {
