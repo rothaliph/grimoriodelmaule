@@ -55,3 +55,12 @@ Este repositorio contiene el código fuente de **5etools** (sitio web estático 
 - [ ] Se ejecutaron checks relevantes al área tocada.
 - [ ] No se incluyó contenido homebrew por error.
 - [ ] No se alteraron artefactos generados salvo que el cambio lo requiera explícitamente.
+
+## Convención de maquetación para páginas tipo grimorio
+- Basarse en los estilos y convenciones visuales utilizadas en `adventure.html` para títulos, texto y tablas cuando se normalicen páginas HTML de contenido.
+- En tablas, usar siempre las clases: `ve-w-100 ve-rd__table stripe-odd-table`.
+- En títulos, usar siempre:
+	- `h1`: `ve-rd__h ve-rd__h--1`
+	- `h2`: `ve-rd__h ve-rd__h--2`
+	- `h3`: `ve-rd__h ve-rd__h--3`
+- Evitar estilos inline o bloques `<style>` locales para estos elementos, privilegiando las clases compartidas del proyecto.
