@@ -51,7 +51,7 @@ class GrimorioMaulinoIndexPage {
 			title.textContent = campaign.name;
 
 			const desc = document.createElement("p");
-			desc.className = "ve-my-2";
+			desc.className = "grimoire-campaign-card__desc";
 			desc.textContent = campaign.description || "Sin descripción.";
 
 			body.append(title, desc);
