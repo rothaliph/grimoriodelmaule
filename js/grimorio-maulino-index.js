@@ -1,4 +1,5 @@
 const PATH_INDEX = "data/grimoriomaulino/index.json";
+const MAX_DESCRIPTION_LENGTH = 1000;
 
 class GrimorioMaulinoIndexPage {
 	constructor () {
@@ -52,12 +53,23 @@ class GrimorioMaulinoIndexPage {
 
 			const desc = document.createElement("p");
 			desc.className = "grimoire-campaign-card__desc";
-			desc.textContent = campaign.description || "Sin descripción.";
+			desc.textContent = this._getCardDescription(campaign.description);
 
 			body.append(title, desc);
 			card.append(img, body);
 			this._grid.append(card);
 		}
+	}
+
+	_getCardDescription (description) {
+		if (!description) return "Sin descripción.";
+
+		if (description.length <= MAX_DESCRIPTION_LENGTH) return description;
+
+		const truncated = description.slice(0, MAX_DESCRIPTION_LENGTH);
+		const lastSpaceIx = truncated.lastIndexOf(" ");
+		if (lastSpaceIx <= 0) return `${truncated}...`;
+		return `${truncated.slice(0, lastSpaceIx)}...`;
 	}
 }
 

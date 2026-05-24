@@ -41,16 +41,22 @@
 		}
 
 		.grimoire-campaign-card__body {
+			display: flex;
+			flex-direction: column;
 			padding: 12px;
-			overflow: hidden;
+			gap: 8px;
+		}
+
+		.grimoire-campaign-card__body h3 {
+			white-space: normal;
+			overflow-wrap: anywhere;
+			word-break: break-word;
 		}
 
 		.grimoire-campaign-card__desc {
-			margin: 8px 0 0;
+			margin: 0;
 			overflow-wrap: anywhere;
 			word-break: break-word;
-			max-height: 13.5em;
-			overflow-y: auto;
 		}
 	</style>
 
