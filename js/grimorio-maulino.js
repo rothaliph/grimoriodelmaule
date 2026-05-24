@@ -141,11 +141,13 @@ class GrimorioMaulino {
 					? this._expandedSections[sectionKey]
 					: this._state.campaignId === campaign.id && this._state.sectionId === section.id;
 				eleSectionToggle.textContent = isExpanded ? "[−]" : "[+]";
-				elePageList.style.display = isExpanded ? "" : "none";
+				if (isExpanded) elePageList.style.removeProperty("display");
+				else elePageList.style.setProperty("display", "none", "important");
 
 				eleSectionHeader.addEventListener("click", () => {
 					const isCollapsed = elePageList.style.display === "none";
-					elePageList.style.display = isCollapsed ? "" : "none";
+					if (isCollapsed) elePageList.style.removeProperty("display");
+					else elePageList.style.setProperty("display", "none", "important");
 					eleSectionToggle.textContent = isCollapsed ? "[−]" : "[+]";
 					this._expandedSections[sectionKey] = isCollapsed;
 				});
