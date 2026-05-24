@@ -8,7 +8,7 @@ class GrimorioMaulino {
 			pageId: null,
 		};
 		this._index = null;
-		this._campaigns = {};
+		this._campaign = null;
 		this._expandedSections = {};
 
 		this._subtitle = document.getElementById("page__subtitle");
@@ -18,20 +18,32 @@ class GrimorioMaulino {
 
 	async pInit () {
 		this._index = await this._pLoadIndex();
-		await this._pLoadCampaigns();
+		await this._pLoadCampaign();
 		this._renderMenu();
 		this._initHashHandling();
 	}
 
-	async _pLoadCampaigns () {
-		for (const campaignMeta of this._index?.campaigns || []) {
-			if (!campaignMeta.path) continue;
+	_getInitialCampaignId () {
+		const [campaignId] = (window.location.hash.slice(1) || "").split("/");
+		return campaignId || null;
+	}
 
-			const response = await fetch(campaignMeta.path);
-			if (!response.ok) throw new Error(`No se pudo cargar ${campaignMeta.path}`);
-			const campaign = await response.json();
-			this._campaigns[campaign.id] = campaign;
-		}
+	_getCampaignMetaById (campaignId) {
+		return this._index?.campaigns?.find(it => it.id === campaignId) || null;
+	}
+
+	_getFirstCampaignMeta () {
+		return this._index?.campaigns?.[0] || null;
+	}
+
+	async _pLoadCampaign () {
+		const campaignId = this._getInitialCampaignId();
+		const campaignMeta = this._getCampaignMetaById(campaignId) || this._getFirstCampaignMeta();
+		if (!campaignMeta?.path) return;
+
+		const response = await fetch(campaignMeta.path);
+		if (!response.ok) throw new Error(`No se pudo cargar ${campaignMeta.path}`);
+		this._campaign = await response.json();
 	}
 
 	async _pLoadIndex () {
@@ -48,8 +60,9 @@ class GrimorioMaulino {
 	async _pApplyHash () {
 		const [campaignId, sectionId, pageId] = (window.location.hash.slice(1) || "").split("/");
 
-		const campaign = this._getCampaignById(campaignId) || this._getFirstCampaign();
+		const campaign = this._campaign;
 		if (!campaign) return this._renderEmpty("No hay campañas configuradas en el índice.");
+		if (campaignId && campaignId !== campaign.id) return this._renderEmpty(`Campaña no disponible: ${campaignId}.`);
 
 		const section = this._getSectionById(campaign, sectionId) || campaign.secciones?.[0];
 		if (!section) return this._renderEmpty(`La campaña "${campaign.name}" no tiene secciones.`);
@@ -73,15 +86,6 @@ class GrimorioMaulino {
 		await this._pLoadPage({campaign, section, page});
 	}
 
-	_getCampaignById (campaignId) {
-		return this._campaigns[campaignId];
-	}
-
-	_getFirstCampaign () {
-		const firstId = this._index?.campaigns?.[0]?.id;
-		return firstId ? this._campaigns[firstId] : null;
-	}
-
 	_getSectionById (campaign, sectionId) {
 		return campaign?.secciones?.find(it => it.id === sectionId);
 	}
@@ -93,86 +97,87 @@ class GrimorioMaulino {
 	_renderMenu () {
 		this._menu.innerHTML = "";
 
-		for (const campaignMeta of this._index?.campaigns || []) {
-			const campaign = this._campaigns[campaignMeta.id];
-			if (!campaign) continue;
+		const campaign = this._campaign;
+		if (!campaign) return;
 
-			const eleCampaign = document.createElement("div");
-			eleCampaign.className = "contents-item";
-			eleCampaign.dataset.bookid = campaign.id;
+		const eleCampaign = document.createElement("div");
+		eleCampaign.className = "contents-item";
+		eleCampaign.dataset.bookid = campaign.id;
 
-			const eleHeader = document.createElement("div");
-			eleHeader.className = "bk__contents-header";
+		const eleHeader = document.createElement("div");
+		eleHeader.className = "bk__contents-header";
 
-			const eleCampaignTitle = document.createElement("a");
-			eleCampaignTitle.href = `#${campaign.id}`;
-			eleCampaignTitle.className = "bk__contents_header_link ve-lst__wrp-cells ve-lst__row-inner ve-bold";
-			eleCampaignTitle.title = campaign.name;
-			eleCampaignTitle.textContent = campaign.name;
-			eleHeader.appendChild(eleCampaignTitle);
-			eleCampaign.appendChild(eleHeader);
+		const eleCampaignTitle = document.createElement("a");
+		eleCampaignTitle.href = `#${campaign.id}`;
+		eleCampaignTitle.className = "bk__contents_header_link ve-lst__wrp-cells ve-lst__row-inner ve-bold";
+		eleCampaignTitle.title = campaign.name;
+		eleCampaignTitle.textContent = campaign.name;
+		eleHeader.appendChild(eleCampaignTitle);
+		eleCampaign.appendChild(eleHeader);
 
-			const eleSectionList = document.createElement("div");
-			eleSectionList.className = "bk-contents ve-pl-4 ve-ml-2";
+		const eleSectionList = document.createElement("div");
+		eleSectionList.className = "bk-contents ve-pl-4 ve-ml-2";
 
-			for (const section of campaign.secciones || []) {
-				const eleSection = document.createElement("div");
-				eleSection.className = "ve-flex-col";
+		for (const section of campaign.secciones || []) {
+			const eleSection = document.createElement("div");
+			eleSection.className = "ve-flex-col";
 
-				const eleSectionHeader = document.createElement("div");
-				eleSectionHeader.className = "ve-flex-v-center ve-lst__row-inner";
-				eleSectionHeader.title = section.name;
+			const eleSectionHeader = document.createElement("div");
+			eleSectionHeader.className = "ve-flex-v-center ve-lst__row-inner";
+			eleSectionHeader.title = section.name;
 
-				const eleSectionToggle = document.createElement("span");
-				eleSectionToggle.className = "ve-px-2 ve-bold";
-				eleSectionHeader.appendChild(eleSectionToggle);
+			const eleSectionToggle = document.createElement("span");
+			eleSectionToggle.className = "ve-px-2 ve-bold";
+			eleSectionHeader.appendChild(eleSectionToggle);
 
-				const eleSectionName = document.createElement("span");
-				eleSectionName.textContent = section.name;
-				eleSectionHeader.appendChild(eleSectionName);
+			const eleSectionName = document.createElement("span");
+			eleSectionName.textContent = section.name;
+			eleSectionHeader.appendChild(eleSectionName);
 
-				eleSection.appendChild(eleSectionHeader);
+			eleSection.appendChild(eleSectionHeader);
 
-				const elePageList = document.createElement("div");
-				elePageList.className = "ve-flex-col ve-pl-4 ve-ml-2 pagelistsubsection";
+			const elePageList = document.createElement("div");
+			elePageList.className = "ve-flex-col ve-pl-4 ve-ml-2 pagelistsubsection";
 
-				const sectionKey = `${campaign.id}__${section.id}`;
-				const isExpanded = this._expandedSections[sectionKey] != null
-					? this._expandedSections[sectionKey]
-					: this._state.campaignId === campaign.id && this._state.sectionId === section.id;
-				eleSectionToggle.textContent = isExpanded ? "[−]" : "[+]";
-				if (isExpanded) elePageList.style.removeProperty("display");
+			const sectionKey = `${campaign.id}__${section.id}`;
+			const isExpanded = this._expandedSections[sectionKey] != null
+				? this._expandedSections[sectionKey]
+				: this._state.sectionId === section.id;
+			eleSectionToggle.textContent = isExpanded ? "[−]" : "[+]";
+			if (isExpanded) elePageList.style.removeProperty("display");
+			else elePageList.style.setProperty("display", "none", "important");
+
+			eleSectionHeader.addEventListener("click", () => {
+				const isCollapsed = elePageList.style.display === "none";
+				if (isCollapsed) elePageList.style.removeProperty("display");
 				else elePageList.style.setProperty("display", "none", "important");
+				eleSectionToggle.textContent = isCollapsed ? "[−]" : "[+]";
+				this._expandedSections[sectionKey] = isCollapsed;
+			});
 
-				eleSectionHeader.addEventListener("click", () => {
-					const isCollapsed = elePageList.style.display === "none";
-					if (isCollapsed) elePageList.style.removeProperty("display");
-					else elePageList.style.setProperty("display", "none", "important");
-					eleSectionToggle.textContent = isCollapsed ? "[−]" : "[+]";
-					this._expandedSections[sectionKey] = isCollapsed;
-				});
+			for (const page of section.paginas || []) {
+				const elePage = document.createElement("a");
+				elePage.href = `#${campaign.id}/${section.id}/${page.id}`;
+				elePage.className = "lst--border ve-lst__row-inner";
+				elePage.textContent = page.name;
 
-				for (const page of section.paginas || []) {
-					const elePage = document.createElement("a");
-					elePage.href = `#${campaign.id}/${section.id}/${page.id}`;
-					elePage.className = "lst--border ve-lst__row-inner";
-					elePage.textContent = page.name;
+				if (this._state.sectionId === section.id && this._state.pageId === page.id) elePage.classList.add("list-multi-selected");
 
-					if (this._state.campaignId === campaign.id && this._state.sectionId === section.id && this._state.pageId === page.id) {
-						elePage.classList.add("list-multi-selected");
-					}
-
-					elePageList.appendChild(elePage);
-				}
-
-				eleSection.appendChild(elePageList);
-				eleSectionList.appendChild(eleSection);
+				elePageList.appendChild(elePage);
 			}
 
-			eleCampaign.appendChild(eleSectionList);
-
-			this._menu.appendChild(eleCampaign);
+			eleSection.appendChild(elePageList);
+			eleSectionList.appendChild(eleSection);
 		}
+
+		eleCampaign.appendChild(eleSectionList);
+		this._menu.appendChild(eleCampaign);
+
+		const eleBack = document.createElement("a");
+		eleBack.href = "grimorio-maulino-index.html";
+		eleBack.className = "ve-btn ve-btn-default ve-mt-3";
+		eleBack.textContent = "Volver a otras campañas";
+		this._menu.appendChild(eleBack);
 	}
 
 	async _pLoadPage ({campaign, section, page}) {
