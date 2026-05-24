@@ -2,7 +2,7 @@
 	"id": "phandelver-and-below",
 	"name": "Phandelver... and below",
 	"description": "Aventuras y registro de personajes de la campaña principal en Phandalin.",
-	"image": "phandelver-and-below/placeholder.png",
+	"image": "data/grimoriomaulino/campanias/phandelver-and-below/placeholder.jpg",
 	"secciones": [
 		{
 			"id": "personajes-principales",
