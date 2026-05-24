@@ -12,6 +12,26 @@
 					"id": "blergh",
 					"name": "Ble'rgh",
 					"image": "blergh.jpeg"
+				},{
+					"id": "himel",
+					"name": "Himel de Lodrick",
+					"image": "himel.jpeg"
+				},{
+					"id": "kosenssax",
+					"name": "Kosenssax",
+					"image": "kosenssax.jpeg"
+				},{
+					"id": "lether",
+					"name": "Lether",
+					"image": "lether.jpeg"
+				},{
+					"id": "mila",
+					"name": "Mila Aurealis",
+					"image": "mila.jpeg"
+				},{
+					"id": "tristan",
+					"name": "Tristán Velmor",
+					"image": "tristan.jpeg"
 				}
 			]
 		},
@@ -20,7 +40,13 @@
 			"name": "NPC",
 			"paginas": [
 				{
-					
+					"id": "sir-aymeric",
+					"name": "Sir Ayméric de Boreal",
+					"image": "sir-aymeric.jpeg"
+				},{
+					"id": "tadeo-nathaly",
+					"name": "Tadeo & Nathaly Highard",
+					"image": "tadeo-nathaly.jpeg"
 				}
 			]
 		},
@@ -31,7 +57,7 @@
 				{
 					"id": "mapa",
 					"name": "Mapas de Cormyr",
-					"html": "mapa.html"
+					"image": "mapa.jpeg"
 				}
 			]
 		},
