@@ -70,7 +70,9 @@ class NavBar {
 		btnShowHide.innerHTML = "Menu";
 		btnShowHide.onclick = () => {
 			btnShowHide.classList.toggle("ve-active");
-			em(`.page__nav-hidden-mobile`).forEach(ele => ele.toggleClass("ve-block", btnShowHide.classList.contains("ve-active")));
+
+			const isActive = btnShowHide.classList.contains("ve-active");
+			[...document.querySelectorAll(".page__nav-hidden-mobile")].forEach(ele => ele.classList.toggle("ve-block", isActive));
 		};
 		eleNavigation.prepend(btnShowHide);
 
