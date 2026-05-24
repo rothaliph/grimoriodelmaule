@@ -3,14 +3,17 @@
 		{
 			"id": "phandelver-and-below",
 			"name": "Phandelver... and below",
-			"descripcion": "Prepárate para una aventura de D&D 5e Phandelver and Below que comienza en el clásico pueblo de Phandalin, donde héroes novatos se enfrentan a desafíos clásicos. Pronto descubrirás que bajo la aparente paz acecha una oscura y mutante conspiración sobrenatural, transformando tu tranquilo hogar en una intensa carrera contra el tiempo para detener una invasión inimaginable que desafiará todo lo que conoces.",
 			"path": "data/grimoriomaulino/campaigns/phandelver-and-below.json"
 		},
 		{
 			"id": "golden-vault-spelljammers",
 			"name": "Golden Vault: Spelljammers",
-			"descripcion": "Prepárate para zarpar hacia lo desconocido en una epopeya cósmica de ritmo vertiginoso. Cuando una catástrofe sin precedentes amenace tu hogar, tu grupo se verá impulsado a las estrellas a bordo de Spelljammer. En esta aventura estilo space opera, explorarás la inmensidad del Wildspace, esquivarás piratas y navegarás por el mar astral mientras reclutas aliados para evitar una destrucción multiversal.",
 			"path": "data/grimoriomaulino/campaigns/golden-vault-spelljammers.json"
+		},
+		{
+			"id": "eorzea-la-cancion-de-las-estrellas-caidas",
+			"name": "Eorzea - La Canción de las Estrellas Caidas",
+			"path": "data/grimoriomaulino/campaigns/eorzea-la-cancion-de-las-estrellas-caidas.json"
 		}
 	]
 }

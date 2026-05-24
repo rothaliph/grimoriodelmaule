@@ -1,0 +1,56 @@
+{
+	"id": "eorzea-la-cancion-de-las-estrellas-caidas",
+	"name": "Eorzea - La Canción de las Estrellas Caidas",
+	"description": "",
+	"image": "data/grimoriomaulino/campanias/eorzea-la-cancion-de-las-estrellas-caidas/eorzea.png",
+	"secciones": [
+		{
+			"id": "aventureros",
+			"name": "Aventureros",
+			"paginas": [
+				{
+					"id": "blergh",
+					"name": "Ble'rgh",
+					"html": "blergh.html"
+				}
+			]
+		},
+		{
+			"id": "npc",
+			"name": "NPC",
+			"paginas": [
+				{
+					
+				}
+			]
+		},
+		{
+			"id": "informacion",
+			"name": "Información Compartida",
+			"paginas": [
+				{
+					"id": "mapa",
+					"name": "Mapas de Cormyr",
+					"html": "mapa.html"
+				}
+			]
+		},
+		{
+			"id": "reglas",
+			"name": "Reglas usadas",
+			"paginas": [
+				{
+					"id": "flanqueo",
+					"name": "Flanqueo",
+					"html": "flanqueo.html"
+				},
+				{
+					"id": "aprendizaje",
+					"name": "Aprendizaje",
+					"html": "aprendizaje.html"
+				}
+			]
+		}
+
+	]
+}
