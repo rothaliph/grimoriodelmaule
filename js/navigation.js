@@ -33,10 +33,13 @@ class NavBar {
 
 	static _onDomContentLoaded () {
 		NavBar._initElements();
+		if (!NavBar._navbar) return;
 		NavBar.highlightCurrentPage();
 	}
 
 	static _onLoad () {
+		if (!NavBar._navbar) return;
+
 		NavBar._dropdowns = [...NavBar._navbar.querySelectorAll(`li.dropdown--navbar`)];
 		document.addEventListener("click", () => NavBar._closeAllDropdowns());
 
@@ -52,6 +55,11 @@ class NavBar {
 
 	static _initElements () {
 		NavBar._navbar = document.getElementById("navbar");
+		if (!NavBar._navbar) return;
+
+		const eleNavigation = document.getElementById("navigation");
+		if (!eleNavigation) return;
+
 		NavBar._tree = new NavBar.Node({
 			body: NavBar._navbar,
 		});
@@ -64,7 +72,7 @@ class NavBar {
 			btnShowHide.classList.toggle("ve-active");
 			em(`.page__nav-hidden-mobile`).forEach(ele => ele.toggleClass("ve-block", btnShowHide.classList.contains("ve-active")));
 		};
-		document.getElementById("navigation").prepend(btnShowHide);
+		eleNavigation.prepend(btnShowHide);
 
 		this._addElement_li({page: "index.html", aText: "Home"});
 
