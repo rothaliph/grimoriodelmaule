@@ -62,5 +62,6 @@ Este repositorio contiene el código fuente de **5etools** (sitio web estático 
 - En títulos, usar siempre:
 	- `h1`: `ve-rd__h ve-rd__h--1`
 	- `h2`: `ve-rd__h ve-rd__h--2`
-	- `h3`: `ve-rd__h ve-rd__h--3`
+	- `h3`: `ve-rd__h ve-rd__h--2`
+  - `h4`: `ve-rd__h ve-rd__h--2`
 - Evitar estilos inline o bloques `<style>` locales para estos elementos, privilegiando las clases compartidas del proyecto.
