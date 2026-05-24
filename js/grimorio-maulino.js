@@ -95,38 +95,76 @@ class GrimorioMaulino {
 			if (!campaign) continue;
 
 			const eleCampaign = document.createElement("div");
-			eleCampaign.className = "ve-flex-col ve-mb-2";
+			eleCampaign.className = "contents-item";
+			eleCampaign.dataset.bookid = campaign.id;
 
-			const eleCampaignTitle = document.createElement("div");
-			eleCampaignTitle.className = "book-head-header";
+			const eleHeader = document.createElement("div");
+			eleHeader.className = "bk__contents-header";
+
+			const eleCampaignTitle = document.createElement("a");
+			eleCampaignTitle.href = `#${campaign.id}`;
+			eleCampaignTitle.className = "bk__contents_header_link ve-lst__wrp-cells ve-lst__row-inner ve-bold";
+			eleCampaignTitle.title = campaign.name;
 			eleCampaignTitle.textContent = campaign.name;
-			eleCampaign.appendChild(eleCampaignTitle);
+			eleHeader.appendChild(eleCampaignTitle);
+			eleCampaign.appendChild(eleHeader);
+
+			const eleSectionList = document.createElement("div");
+			eleSectionList.className = "bk-contents ve-pl-4 ve-ml-2";
 
 			for (const section of campaign.secciones || []) {
-				const eleSection = document.createElement("details");
-				eleSection.className = "ve-flex-col ve-mb-2";
-				eleSection.open = this._state.campaignId === campaign.id && this._state.sectionId === section.id;
+				const eleSection = document.createElement("div");
+				eleSection.className = "ve-flex-col";
 
-				const eleSectionTitle = document.createElement("summary");
-				eleSectionTitle.className = "lst__row-inner";
-				eleSectionTitle.textContent = section.name;
-				eleSection.appendChild(eleSectionTitle);
+				const eleSectionHeader = document.createElement("a");
+				eleSectionHeader.href = `#${campaign.id}/${section.id}`;
+				eleSectionHeader.className = "ve-flex-v-center ve-lst__row-inner";
+				eleSectionHeader.title = section.name;
+
+				const eleSectionToggle = document.createElement("span");
+				eleSectionToggle.className = "ve-px-2 ve-bold";
+				eleSectionHeader.appendChild(eleSectionToggle);
+
+				const eleSectionName = document.createElement("span");
+				eleSectionName.textContent = section.name;
+				eleSectionHeader.appendChild(eleSectionName);
+
+				eleSection.appendChild(eleSectionHeader);
+
+				const elePageList = document.createElement("div");
+				elePageList.className = "ve-flex-col";
+
+				const isExpanded = this._state.campaignId === campaign.id && this._state.sectionId === section.id;
+				eleSectionToggle.textContent = isExpanded ? "[−]" : "[+]";
+				elePageList.style.display = isExpanded ? "" : "none";
+
+				eleSectionHeader.addEventListener("click", evt => {
+					if (evt.target.tagName === "A") return;
+					evt.preventDefault();
+					evt.stopPropagation();
+					const isCollapsed = elePageList.style.display === "none";
+					elePageList.style.display = isCollapsed ? "" : "none";
+					eleSectionToggle.textContent = isCollapsed ? "[−]" : "[+]";
+				});
 
 				for (const page of section.paginas || []) {
 					const elePage = document.createElement("a");
 					elePage.href = `#${campaign.id}/${section.id}/${page.id}`;
-					elePage.className = "lst--border lst__row-inner";
+					elePage.className = "lst--border ve-lst__row-inner";
 					elePage.textContent = page.name;
 
 					if (this._state.campaignId === campaign.id && this._state.sectionId === section.id && this._state.pageId === page.id) {
 						elePage.classList.add("list-multi-selected");
 					}
 
-					eleSection.appendChild(elePage);
+					elePageList.appendChild(elePage);
 				}
 
-				eleCampaign.appendChild(eleSection);
+				eleSection.appendChild(elePageList);
+				eleSectionList.appendChild(eleSection);
 			}
+
+			eleCampaign.appendChild(eleSectionList);
 
 			this._menu.appendChild(eleCampaign);
 		}
