@@ -204,7 +204,7 @@ class GrimorioMaulino {
 	}
 
 	_renderImagePage ({resourcePath, pageName}) {
-		this._content.innerHTML = `<div class="ve-flex-h-center"><img class="ve-w-100" src="${resourcePath}" alt="${pageName}"></div>`;
+		this._content.innerHTML = `<div class="ve-flex-h-center"><img class="ve-w-initial ve-max-w-100" src="${resourcePath}" alt="${pageName}"></div>`;
 	}
 
 	_renderEmpty (message) {
