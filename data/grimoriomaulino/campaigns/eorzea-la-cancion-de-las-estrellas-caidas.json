@@ -1,0 +1,121 @@
+{
+	"id": "eorzea-la-cancion-de-las-estrellas-caidas",
+	"name": "Eorzea - La Canción de las Estrellas Caidas",
+	"description": "Prepárate para una travesía de alta fantasía donde juramentos, imperios sagrados y antiguas cicatrices decidirán el destino del mundo. Atravesarán reinos nevados, ruinas olvidadas y tierras marcadas por la guerra, forjando leyendas frente a horrores ancestrales y enemigos imposibles. Una epopeya heroica de exploración, sacrificio y esperanza… donde incluso las estrellas parecen recordar lo que el mundo perdió.",
+	"image": "data/grimoriomaulino/campanias/eorzea-la-cancion-de-las-estrellas-caidas/eorzea.png",
+	"secciones": [
+		{
+			"id": "aventureros",
+			"name": "Aventureros",
+			"paginas": [
+				{
+					"id": "blergh",
+					"name": "Ble'rgh Uur'kesh",
+					"image": "blergh.jpeg"
+				},{
+					"id": "himel",
+					"name": "Himel de Lodrick",
+					"image": "himel.jpeg"
+				},{
+					"id": "kosenssax",
+					"name": "Kosenssax",
+					"image": "kosenssax.jpeg"
+				},{
+					"id": "lether",
+					"name": "Lether",
+					"image": "lether.jpeg"
+				},{
+					"id": "lyria",
+					"name": "Lyria Caeldorin",
+					"image": "lyria.jpeg"
+				},{
+					"id": "mila",
+					"name": "Mila Aurealis",
+					"image": "mila.jpeg"
+				},{	
+					"id": "populus",
+					"name": "Populus Tristerix",
+					"image": "populus_tristerix.jpeg"
+				},{
+					"id": "tristan",
+					"name": "Tristán Velmor",
+					"image": "tristan.jpeg"
+				}
+			]
+		},
+		{
+			"id": "npc",
+			"name": "NPC",
+			"paginas": [
+				{
+					"id": "sir-aymeric",
+					"name": "Sir Ayméric de Boreal",
+					"image": "sir-aymeric.jpeg"
+				},{
+					"id": "tadeo-nathaly",
+					"name": "Tadeo & Nathaly Highard",
+					"image": "tadeo-nathaly.jpg"
+				}
+			]
+		},
+		{
+			"id": "informacion",
+			"name": "Información Compartida",
+			"paginas": [
+				{
+					"id": "mapa",
+					"name": "Mapas de Cormyr",
+					"image": "mapa.jpeg"
+				}
+			]
+		},
+		{
+			"id": "diario",
+			"name": "Grek'uur Tal-Kroa",
+			"paginas": [
+				{
+					"id": "introduccion",
+					"name": "Hrrak tal-uur",
+					"html": "diario/intro.html"
+				},
+				{
+					"id": "cap1",
+					"name": "Capitulo I",
+					"html": "diario/cap1.html"
+				},
+				{
+					"id": "cap2",
+					"name": "Capitulo II",
+					"html": "diario/cap2.html"
+				},
+				{
+					"id": "cap3",
+					"name": "Capitulo III",
+					"html": "diario/cap3.html"
+				},
+				{
+					"id": "cap4",
+					"name": "Capitulo IV",
+					"html": "diario/cap4.html"
+				}
+			]
+		},
+		{
+			"id": "reglas",
+			"name": "Reglas usadas",
+			"paginas": [
+				{
+					"id": "flanqueo",
+					"name": "Flanqueo",
+					"html": "flanqueo.html"
+				},
+				{
+					"id": "aprendizaje",
+					"name": "Aprendizaje",
+					"html": "aprendizaje.html"
+				}
+			]
+		}
+
+	]
+}

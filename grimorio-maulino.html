@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--5ETOOLS_CMP-->
+	<!--5ETOOLS_ANALYTICS-->
+	<!--5ETOOLS_ADCODE-->
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<title>Grimorio Maulino - 5etools</title>
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<style>
+		.pagelistsubsection {
+			background-color: #ccc2;
+		}
+	</style>
+
+	<link rel="icon" type="image/svg+xml" href="favicon.svg">
+	<link rel="manifest" href="manifest.webmanifest">
+
+	<script type="text/javascript" src="sw-injector.js"></script>
+	<script blocking="render" type="module" src="js/styleswitch.js"></script>
+	<script type="text/javascript" src="js/navigation.js"></script>
+	<script type="module" src="js/browsercheck.js"></script>
+</head>
+
+<body>
+<div class="overlay-noise no-print"></div>
+
+<header class="ve-mobile-sm__hidden page__header">
+	<div class="container ve-flex-v-baseline">
+		<h1 class="page__title ve-no-wrap ve-my-0">Grimorio Maulino</h1>
+		<p class="page__subtitle ve-no-wrap ve-my-0" id="page__subtitle">Cargando campañas...</p>
+	</div>
+</header>
+
+<nav class="container page__nav" id="navigation">
+	<ul class="nav nav-pills page__nav-inner" id="navbar"></ul>
+</nav>
+
+<div class="container view-col-wrapper">
+	<div class="view-col book-contents view-col--wrp-book-contents" id="listcontainer">
+		<div class="list contents ve-flex-col" id="grimorio-menu"></div>
+	</div>
+
+	<div class="view-col linked-titles book-view">
+		<div id="grimorio-content" class="ve-flex-col">
+			<p class="initial-message initial-message--med">Selecciona una campaña y personaje.</p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" defer src="js/parser.js"></script>
+<script type="text/javascript" defer src="js/utils.js"></script>
+<script type="module" src="js/grimorio-maulino.js"></script>
+</body>
+</html>

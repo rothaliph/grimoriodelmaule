@@ -1,0 +1,40 @@
+{
+	"id": "phandelver-and-below",
+	"name": "Phandelver... and below",
+	"description": "Prepárate para forjar tu leyenda Phandelver and Below, una aventura donde la frontera y lo sobrenatural colisionan. Comenzarás como un héroe novato resolviendo misterios clásicos y defendiendo un pueblo minero, pero pronto descubrirás una oscura conspiración subterránea que amenaza la realidad misma. Un viaje épico de horror cósmico y misterio.",
+	"image": "data/grimoriomaulino/campanias/phandelver-and-below/placeholder.jpg",
+	"secciones": [
+		{
+			"id": "personajes-principales",
+			"name": "Personajes principales",
+			"paginas": [
+				{
+					"id": "mognar",
+					"name": "Mognar",
+					"html": "mognar.html"
+				},
+				{
+					"id": "connery",
+					"name": "Connery Sunscar",
+					"html": "connery.html"
+				},{
+					"id": "sachi",
+					"name": "Sachi",
+					"html": "sachi.html"
+				},
+				{
+					"id": "vellum-bellorosso",
+					"name": "Vellum Bellorosso",
+					"html": "vellum-bellorosso.html"
+				}
+			]
+		},
+		{
+			"id": "personajes-secundarios",
+			"name": "Personajes secundarios",
+			"paginas": [
+				
+			]
+		}
+	]
+}

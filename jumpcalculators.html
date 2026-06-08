@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--5ETOOLS_CMP-->
+	<!--5ETOOLS_ANALYTICS-->
+	<!--5ETOOLS_ADCODE-->
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<title>Calculadoras de Salto - 5etools</title>
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/jumpcalculators.css">
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="favicon.svg">
+	<link rel="icon" type="image/png" sizes="256x256" href="favicon-256x256.png">
+	<link rel="icon" type="image/png" sizes="144x144" href="favicon-144x144.png">
+	<link rel="icon" type="image/png" sizes="128x128" href="favicon-128x128.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="favicon-64x64.png">
+	<link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+	<!-- Chrome Web App Icons -->
+	<link rel="manifest" href="manifest.webmanifest">
+	<meta name="application-name" content="5etools">
+	<meta name="theme-color" content="#006bc4">
+
+	<!-- Windows Start Menu tiles -->
+	<meta name="msapplication-config" content="browserconfig.xml"/>
+	<meta name="msapplication-TileColor" content="#006bc4">
+
+	<!-- Apple Touch Icons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+	<link rel="apple-touch-icon" sizes="360x360" href="apple-touch-icon-360x360.png">
+	<link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167x167.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+	<meta name="apple-mobile-web-app-title" content="5etools">
+
+	<!-- macOS Safari Pinned Tab and Touch Bar -->
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#006bc4">
+
+	<!-- OpenSearch -->
+	<link rel="search" href="open-search.xml" title="Search 5etools" type="application/opensearchdescription+xml">
+
+	<script type="text/javascript" src="sw-injector.js"></script>
+
+	<script blocking="render" type="module" src="js/styleswitch.js"></script>
+	<script type="text/javascript" src="js/navigation.js"></script>
+	<script type="module" src="js/browsercheck.js"></script>
+</head>
+
+<body>
+
+<div class="overlay-noise no-print"></div>
+
+<div class="cancer__wrp-leaderboard cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__wrp-leaderboard-inner cancer__wrp-interactive"><!--5ETOOLS_AD_LEADERBOARD--></div></div>
+
+<header class="ve-mobile-sm__hidden page__header">
+	<div class="container ve-flex-v-baseline">
+		<h1 class="page__title ve-no-wrap ve-my-0" id="page__title">Calculadoras de Salto</h1>
+		<p class="page__subtitle ve-no-wrap ve-my-0" id="page__subtitle">Reglas oficiales PHB'24 para Salto Largo y Salto Alto, con resultados en pies y metros.</p>
+	</div>
+</header>
+
+<nav class="container page__nav" id="navigation">
+	<ul class="nav nav-pills page__nav-inner" id="navbar"></ul>
+</nav>
+
+<div class="cancer__wrp-sidebar cancer__wrp-sidebar cancer__wrp-sidebar-lhs cancer__wrp-sidebar-lhs--scrolling-page cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__sidebar-inner cancer__sidebar-inner--top cancer__wrp-interactive"><!--5ETOOLS_AD_LEFT_1--></div><div class="cancer__sidebar-inner cancer__sidebar-inner--bottom cancer__wrp-interactive"><!--5ETOOLS_AD_LEFT_2--></div></div>
+<div class="cancer__wrp-sidebar cancer__wrp-sidebar-rhs cancer__wrp-sidebar-rhs--scrolling-page cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__sidebar-inner cancer__sidebar-inner--top cancer__wrp-interactive"><!--5ETOOLS_AD_RIGHT_1--></div><div class="cancer__sidebar-inner cancer__sidebar-inner--bottom cancer__wrp-interactive"><!--5ETOOLS_AD_RIGHT_2--></div></div>
+
+<main class="container jcalc">
+	<div class="jcalc__intro ve-my-2">
+		<p class="ve-my-0">Ingresa los valores necesarios y obtén cálculo en sistema de pies y métrico. Las fórmulas siguen exactamente PHB'24.</p>
+	</div>
+
+	<section class="jcalc__panel" id="salto-largo">
+		<h2 class="jcalc__title">Calculadora de Salto Largo</h2>
+		<div class="jcalc__grid">
+			<div class="jcalc__card">
+				<h3 class="jcalc__subtitle">Datos</h3>
+				<div class="jcalc__controls">
+					<label class="jcalc__control" for="ipt-long-str">
+						<span>Fuerza</span>
+						<input id="ipt-long-str" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="1" max="30" value="10">
+					</label>
+					<label class="jcalc__control" for="ipt-long-obstacle">
+						<span>Altura de obstáculo</span>
+						<input id="ipt-long-obstacle" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="0" step="0.01" value="0">
+					</label>
+					<label class="jcalc__control" for="sel-long-obstacle-unit">
+						<span>Unidad obstáculo</span>
+						<select id="sel-long-obstacle-unit" class="ve-form-control ve-input-xs">
+							<option value="ft">Pies</option>
+							<option value="m">Metros</option>
+						</select>
+					</label>
+					<label class="jcalc__control jcalc__control--checkbox" for="cb-long-difficult">
+						<input id="cb-long-difficult" type="checkbox">
+						<span>El aterrizaje es en terreno difícil</span>
+					</label>
+				</div>
+			</div>
+			<div class="jcalc__card">
+				<h3 class="jcalc__subtitle">Resultados</h3>
+				<ul class="jcalc__results ve-my-0">
+					<li><strong>Con carrera (mín. 10 pies):</strong> <span id="out-long-run-ft">10.00</span> ft / <span id="out-long-run-m">3.05</span> m</li>
+					<li><strong>Sin carrera:</strong> <span id="out-long-stand-ft">5.00</span> ft / <span id="out-long-stand-m">1.52</span> m</li>
+					<li><strong>Costo de movimiento (con carrera):</strong> <span id="out-long-cost-ft">10.00</span> ft / <span id="out-long-cost-m">3.05</span> m</li>
+					<li><strong>Obstáculo bajo máximo (¼ del salto con carrera):</strong> <span id="out-long-obstacle-max-ft">2.50</span> ft / <span id="out-long-obstacle-max-m">0.76</span> m</li>
+				</ul>
+				<div class="jcalc__note" id="out-long-obstacle-note">No hay obstáculo configurado.</div>
+				<div class="jcalc__note" id="out-long-difficult-note">Si aterrizas en terreno difícil, debes superar una prueba de Destreza (Acrobacias) CD 10 o quedas Tumbado.</div>
+			</div>
+		</div>
+		<div class="jcalc__rules">
+			<h3 class="jcalc__subtitle">Regla oficial traducida (PHB'24, p. 370)</h3>
+			<p>Cuando haces un <strong>Salto Largo</strong>, saltas horizontalmente una cantidad de pies de hasta tu puntuación de Fuerza, si te mueves al menos 10 pies inmediatamente antes del salto. Cuando haces un Salto Largo en estático, solo puedes saltar la mitad de esa distancia. En cualquier caso, cada pie que saltas cuesta un pie de movimiento.</p>
+			<p>Si aterrizas en terreno difícil, debes superar una prueba de Destreza (Acrobacias) CD 10 o adquieres la condición de Tumbado.</p>
+			<p>Esta regla de Salto Largo asume que la altura del salto no importa, como al saltar sobre un arroyo o un abismo. A discreción del DM, debes superar una prueba de Fuerza (Atletismo) CD 10 para superar un obstáculo bajo (no más alto que una cuarta parte de la distancia del salto). De lo contrario, golpeas el obstáculo.</p>
+			<p class="jcalc__source">Fuente: PHB'24, p. 370. Disponible en SRD 5.2.1 y Reglas Básicas (5.5e/2024).</p>
+		</div>
+	</section>
+
+	<section class="jcalc__panel" id="salto-alto">
+		<h2 class="jcalc__title">Calculadora de Salto Alto</h2>
+		<div class="jcalc__grid">
+			<div class="jcalc__card">
+				<h3 class="jcalc__subtitle">Datos</h3>
+				<div class="jcalc__controls">
+					<label class="jcalc__control" for="ipt-high-str">
+						<span>Fuerza</span>
+						<input id="ipt-high-str" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="1" max="30" value="10">
+					</label>
+					<label class="jcalc__control" for="sel-high-height-unit">
+						<span>Unidad de altura</span>
+						<select id="sel-high-height-unit" class="ve-form-control ve-input-xs">
+							<option value="ft">Pies</option>
+							<option value="m">Metros</option>
+						</select>
+					</label>
+					<label class="jcalc__control" for="ipt-high-height">
+						<span>Altura del personaje</span>
+						<input id="ipt-high-height" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="0" step="0.01" value="5.50">
+					</label>
+				</div>
+			</div>
+			<div class="jcalc__card">
+				<h3 class="jcalc__subtitle">Resultados</h3>
+				<ul class="jcalc__results ve-my-0">
+					<li><strong>Con carrera (mín. 10 pies):</strong> <span id="out-high-run-ft">3.00</span> ft / <span id="out-high-run-m">0.91</span> m</li>
+					<li><strong>Sin carrera:</strong> <span id="out-high-stand-ft">1.50</span> ft / <span id="out-high-stand-m">0.46</span> m</li>
+					<li><strong>Costo de movimiento (con carrera):</strong> <span id="out-high-cost-ft">3.00</span> ft / <span id="out-high-cost-m">0.91</span> m</li>
+					<li><strong>Alcance vertical con brazos (con carrera):</strong> <span id="out-reach-run-ft">11.25</span> ft / <span id="out-reach-run-m">3.43</span> m</li>
+					<li><strong>Alcance vertical con brazos (sin carrera):</strong> <span id="out-reach-stand-ft">9.75</span> ft / <span id="out-reach-stand-m">2.97</span> m</li>
+				</ul>
+			</div>
+		</div>
+		<div class="jcalc__rules">
+			<h3 class="jcalc__subtitle">Regla oficial traducida (PHB'24, p. 368)</h3>
+			<p>Cuando haces un <strong>Salto Alto</strong>, saltas en el aire una cantidad de pies igual a 3 + tu modificador de Fuerza (mínimo 0 pies) si te mueves al menos 10 pies a pie inmediatamente antes del salto. Cuando haces un Salto Alto en estático, solo puedes saltar la mitad de esa distancia. En cualquier caso, cada pie del salto cuesta un pie de movimiento.</p>
+			<p>Durante el salto, puedes extender tus brazos por encima de ti una distancia igual a la mitad de tu altura. Por lo tanto, puedes alcanzar una distancia igual a la altura del salto + 1,5 veces tu altura.</p>
+			<p class="jcalc__source">Fuente: PHB'24, p. 368. Disponible en SRD 5.2.1 y Reglas Básicas (5.5e/2024).</p>
+		</div>
+	</section>
+
+	<section class="jcalc__panel" id="tamano-y-altura">
+		<h2 class="jcalc__title">Calculadora de Altura y Tamaño</h2>
+		<div class="jcalc__grid">
+			<div class="jcalc__card">
+				<h3 class="jcalc__subtitle">Conversión de altura</h3>
+				<div class="jcalc__controls">
+					<label class="jcalc__control" for="ipt-size-height">
+						<span>Altura</span>
+						<input id="ipt-size-height" class="ve-form-control form-control--minimal ve-input-xs" type="number" min="0" step="0.01" value="5.50">
+					</label>
+					<label class="jcalc__control" for="sel-size-height-unit">
+						<span>Unidad de entrada</span>
+						<select id="sel-size-height-unit" class="ve-form-control ve-input-xs">
+							<option value="ft">Pies (sistema americano)</option>
+							<option value="m">Metros (sistema métrico)</option>
+						</select>
+					</label>
+				</div>
+				<ul class="jcalc__results ve-mt-2 ve-mb-0">
+					<li><strong>Altura en pies:</strong> <span id="out-size-height-ft">5.50</span> ft</li>
+					<li><strong>Altura en metros:</strong> <span id="out-size-height-m">1.68</span> m</li>
+				</ul>
+				<div class="jcalc__note" id="out-size-category-note">Tamaño sugerido: Medium.</div>
+			</div>
+			<div class="jcalc__card">
+				<h3 class="jcalc__subtitle">Guía de tamaños por altura y espacio en grid de 5 pies</h3>
+				<table class="jcalc__table">
+					<thead>
+					<tr>
+						<th>Tamaño</th>
+						<th>Altura de referencia</th>
+						<th>Espacio en combate</th>
+						<th>Recuadros (5x5 ft)</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr><td>Tiny</td><td>&lt; 2.5 ft (&lt; 0.76 m)</td><td>2.5 ft x 2.5 ft</td><td>1</td></tr>
+					<tr><td>Small</td><td>2 a 4 ft (0.61 a 1.22 m)</td><td>5 ft x 5 ft</td><td>1</td></tr>
+					<tr><td>Medium</td><td>4 a 8 ft (1.22 a 2.44 m)</td><td>5 ft x 5 ft</td><td>1</td></tr>
+					<tr><td>Large</td><td>8 a &lt; 16 ft (2.44 a &lt; 4.88 m)</td><td>10 ft x 10 ft</td><td>4 (2x2)</td></tr>
+					<tr><td>Huge</td><td>16 a &lt; 32 ft (4.88 a &lt; 9.75 m)</td><td>15 ft x 15 ft</td><td>9 (3x3)</td></tr>
+					<tr><td>Gargantuan</td><td>&gt; 32 ft (&gt; 9.75 m)</td><td>20 ft x 20 ft o más</td><td>16+ (4x4 o más)</td></tr>
+					</tbody>
+				</table>
+				<p class="jcalc__source ve-mt-2">Nota: criaturas entre 2 ft y 2.5 ft pueden considerarse Tiny o Small según criterio del DM. En reglas oficiales, el tamaño define su espacio en combate y la altura exacta puede variar por criatura.</p>
+			</div>
+		</div>
+	</section>
+</main>
+
+<!--5ETOOLS_SCRIPT_ANCHOR-->
+<!--5ETOOLS_AD_ADHESION-->
+
+<script type="text/javascript" defer src="js/parser.js"></script>
+<script type="text/javascript" defer src="js/utils.js"></script>
+<script type="text/javascript" defer src="js/utils-ui.js"></script>
+<script type="text/javascript" defer src="lib/localforage.js"></script>
+<script type="module" defer src="js/omnidexer.js"></script>
+<script type="module" src="js/omnisearch.js"></script>
+<script type="module" src="js/filter.js"></script>
+<script type="text/javascript" defer src="js/utils-dataloader.js"></script>
+<script type="module" src="js/utils-font.js"></script>
+<script type="module" src="js/utils-brew.js"></script>
+<script type="module" src="js/utils-config.js"></script>
+<script type="text/javascript" defer src="js/render.js"></script>
+<script type="text/javascript" defer src="js/render-dice.js"></script>
+<script type="module" src="js/shim-esmodules.js"></script>
+<script type="text/javascript" defer src="js/hist.js"></script>
+<script type="module" src="js/jumpcalculators.js"></script>
+<script type="text/javascript" defer src="js/list2.js"></script>
+<script type="text/javascript" defer src="lib/elasticlunr.js"></script>
+
+</body>
+</html>

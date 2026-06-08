@@ -1,0 +1,45 @@
+{
+	"id": "golden-vault-spelljammers",
+	"name": "Golden Vault: Spelljammers",
+	"description": "Prepárate para una epopeya de fantasía espacial al estilo Flash Gordon donde todo tu mundo, literalmente, está en juego. Saltarán de las estrellas a reinos lejanos y se enfrentarán a una amenaza intergaláctica imparable y opresiva. Es una aventura frenética y llena de acción constante que les pondrá al límite.",
+	"image": "data/grimoriomaulino/campanias/golden-vault-spelljammers/placeholder.png",
+	"secciones": [
+		{
+			"id": "tripulacion",
+			"name": "Tripulación",
+			"paginas": [
+				{
+					"id": "polux",
+					"name": "Polux",
+					"html": "polux.html"
+				},
+				{
+					"id": "arrayan-myrtle",
+					"name": "Arrayan Myrtle",
+					"html": "arrayan-myrtle.html"
+				},
+				{
+					"id": "haggar",
+					"name": "Haggar",
+					"html": "haggar.html"
+				},{
+					"id": "gaston-labelle",
+					"name": "Gaston Labelle",
+					"html": "gaston-labelle.html"
+				},
+				{
+					"id": "kyuzo",
+					"name": "Kyuzo",
+					"html": "kyuzo.html"
+				}
+			]
+		},
+		{
+			"id": "aliados",
+			"name": "Aliados",
+			"paginas": [
+				
+			]
+		}
+	]
+}

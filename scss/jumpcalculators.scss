@@ -1,0 +1,133 @@
+@layer vetools {
+	.jcalc {
+		--jcalc-border: #c7c7c7;
+		--jcalc-panel-bg: #fff;
+		--jcalc-card-bg: #f6f9ff;
+		--jcalc-note-bg: #eef3fb;
+		--jcalc-rules-bg: #f8fafc;
+		--jcalc-accent: #006bc4;
+		--jcalc-text-soft: #5f6368;
+	}
+
+	.ve-night-mode .jcalc {
+		--jcalc-border: #3b3b3b;
+		--jcalc-panel-bg: #202020;
+		--jcalc-card-bg: #242b34;
+		--jcalc-note-bg: #2a313b;
+		--jcalc-rules-bg: #242424;
+		--jcalc-accent: #4ea2ff;
+		--jcalc-text-soft: #b8bec5;
+	}
+
+	.jcalc__intro {
+		padding: 12px 14px;
+		border: 1px solid var(--jcalc-border);
+		border-radius: 8px;
+		background: linear-gradient(120deg, var(--jcalc-card-bg), var(--jcalc-panel-bg));
+	}
+
+	.jcalc__panel {
+		margin-bottom: 20px;
+		padding: 14px;
+		border: 1px solid var(--jcalc-border);
+		border-radius: 10px;
+		background: var(--jcalc-panel-bg);
+		box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+	}
+
+	.ve-night-mode .jcalc__panel {
+		box-shadow: 0 1px 2px rgb(0 0 0 / 35%);
+	}
+
+	.jcalc__title {
+		margin-top: 0;
+		margin-bottom: 12px;
+		padding-bottom: 8px;
+		border-bottom: 2px solid var(--jcalc-border);
+	}
+
+	.jcalc__subtitle {
+		margin-top: 0;
+		margin-bottom: 10px;
+	}
+
+	.jcalc__grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		margin-bottom: 12px;
+	}
+
+	.jcalc__card {
+		padding: 12px;
+		border-radius: 8px;
+		border: 1px solid var(--jcalc-border);
+		background: var(--jcalc-card-bg);
+	}
+
+	.jcalc__controls {
+		display: grid;
+		gap: 8px;
+	}
+
+	.jcalc__control {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		margin-bottom: 0;
+	}
+
+	.jcalc__control input,
+	.jcalc__control select {
+		text-align: right;
+		max-width: 12rem;
+	}
+
+	.jcalc__control--checkbox {
+		justify-content: flex-start;
+	}
+
+	.jcalc__results {
+		padding-left: 18px;
+		display: grid;
+		gap: 6px;
+	}
+
+	.jcalc__note {
+		margin-top: 8px;
+		padding: 8px;
+		border-left: 3px solid var(--jcalc-accent);
+		background: var(--jcalc-note-bg);
+	}
+
+	.jcalc__rules {
+		padding: 12px;
+		border-radius: 8px;
+		border: 1px dashed var(--jcalc-border);
+		background: var(--jcalc-rules-bg);
+	}
+
+	.jcalc__source {
+		margin-bottom: 0;
+		font-size: 12px;
+		color: var(--jcalc-text-soft);
+	}
+
+	@media (max-width: 768px) {
+		.jcalc__grid {
+			grid-template-columns: 1fr;
+		}
+
+		.jcalc__control {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.jcalc__control input,
+		.jcalc__control select {
+			max-width: none;
+			width: 100%;
+		}
+	}
+}

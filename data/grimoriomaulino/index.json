@@ -1,0 +1,19 @@
+{
+	"campaigns": [
+		{
+			"id": "phandelver-and-below",
+			"name": "Phandelver... and below",
+			"path": "data/grimoriomaulino/campaigns/phandelver-and-below.json"
+		},
+		{
+			"id": "golden-vault-spelljammers",
+			"name": "Golden Vault: Spelljammers",
+			"path": "data/grimoriomaulino/campaigns/golden-vault-spelljammers.json"
+		},
+		{
+			"id": "eorzea-la-cancion-de-las-estrellas-caidas",
+			"name": "Eorzea - La Canción de las Estrellas Caidas",
+			"path": "data/grimoriomaulino/campaigns/eorzea-la-cancion-de-las-estrellas-caidas.json"
+		}
+	]
+}

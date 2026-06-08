@@ -10,6 +10,7 @@ class NavBar {
 	static _CAT_ADVENTURES = "Adventures";
 	static _CAT_REFERENCES = "References";
 	static _CAT_UTILITIES = "Utilities";
+	static _CAT_CALCULATORS = "Calculadoras";
 	static _CAT_SETTINGS = "Settings";
 	static _CAT_CACHE = "Preload Data";
 
@@ -32,10 +33,13 @@ class NavBar {
 
 	static _onDomContentLoaded () {
 		NavBar._initElements();
+		if (!NavBar._navbar) return;
 		NavBar.highlightCurrentPage();
 	}
 
 	static _onLoad () {
+		if (!NavBar._navbar) return;
+
 		NavBar._dropdowns = [...NavBar._navbar.querySelectorAll(`li.dropdown--navbar`)];
 		document.addEventListener("click", () => NavBar._closeAllDropdowns());
 
@@ -51,6 +55,11 @@ class NavBar {
 
 	static _initElements () {
 		NavBar._navbar = document.getElementById("navbar");
+		if (!NavBar._navbar) return;
+
+		const eleNavigation = document.getElementById("navigation");
+		if (!eleNavigation) return;
+
 		NavBar._tree = new NavBar.Node({
 			body: NavBar._navbar,
 		});
@@ -61,9 +70,11 @@ class NavBar {
 		btnShowHide.innerHTML = "Menu";
 		btnShowHide.onclick = () => {
 			btnShowHide.classList.toggle("ve-active");
-			em(`.page__nav-hidden-mobile`).forEach(ele => ele.toggleClass("ve-block", btnShowHide.classList.contains("ve-active")));
+
+			const isActive = btnShowHide.classList.contains("ve-active");
+			[...document.querySelectorAll(".page__nav-hidden-mobile")].forEach(ele => ele.classList.toggle("ve-block", isActive));
 		};
-		document.getElementById("navigation").prepend(btnShowHide);
+		eleNavigation.prepend(btnShowHide);
 
 		this._addElement_li({page: "index.html", aText: "Home"});
 
@@ -117,12 +128,17 @@ class NavBar {
 		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "psionics.html", aText: "Psionics"});
 		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "spells.html", aText: "Spells"});
 		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "vehicles.html", aText: "Vehicles"});
+		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "grimorio-maulino-index.html", aText: "Grimorio Maulino"});
 		this._addElement_divider({keyPath: [NavBar._CAT_REFERENCES]});
 		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "recipes.html", aText: "Recipes"});
 		this._addElement_li({keyPath: [NavBar._CAT_REFERENCES], page: "homecrafts.html", aText: "Home Crafts"});
 
 		this._addElement_dropdown({category: NavBar._CAT_UTILITIES});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "search.html", aText: "Search"});
+		this._addElement_dropdown({keyPath: [NavBar._CAT_UTILITIES], category: NavBar._CAT_CALCULATORS, isSide: true, page: "jumpcalculators.html"});
+		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES, NavBar._CAT_CALCULATORS], page: "jumpcalculators.html#salto-largo", aText: "Calculadora de Salto Largo"});
+		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES, NavBar._CAT_CALCULATORS], page: "jumpcalculators.html#salto-alto", aText: "Calculadora de Salto Alto"});
+		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES, NavBar._CAT_CALCULATORS], page: "jumpcalculators.html#tamano-y-altura", aText: "Calculadora de Altura y Tamaño"});
 		this._addElement_divider({keyPath: [NavBar._CAT_UTILITIES]});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "blocklist.html", aText: "Content Blocklist"});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "manageprerelease.html", aText: "Prerelease Content Manager"});
