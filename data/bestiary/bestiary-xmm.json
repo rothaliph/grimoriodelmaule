@@ -690,6 +690,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BtS",
 				"FRAiF"
 			],
 			"size": [
@@ -900,7 +901,8 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-DotSC"
 			],
 			"size": [
 				"H"
@@ -1528,6 +1530,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-ACfaS",
 				"FRAiF"
 			],
 			"size": [
@@ -2586,6 +2589,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-SD",
 				"FRAiF"
 			],
 			"size": [
@@ -3207,6 +3211,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DotSC",
 				"FRAiF"
 			],
 			"size": [
@@ -5642,6 +5647,7 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
+				"BQDD",
 				"EFA",
 				"HotB"
 			],
@@ -5729,6 +5735,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BD",
 				"EFA",
 				"FRAiF"
 			],
@@ -6830,6 +6837,7 @@
 			"page": 248,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"EFA",
 				"FRAiF",
 				"NF"
@@ -7001,6 +7009,8 @@
 			"referenceSources": [
 				"ABH",
 				"DrDe",
+				"DrDe-BtS",
+				"DrDe-TDoN",
 				"EFA",
 				"FRAiF",
 				"LFL"
@@ -7912,6 +7922,8 @@
 				"ABH",
 				"BQGT",
 				"DrDe",
+				"DrDe-BD",
+				"DrDe-DotSC",
 				"EFA",
 				"FRAiF",
 				"HotB"
@@ -8871,6 +8883,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DotSC",
 				"NF"
 			],
 			"size": [
@@ -9166,6 +9179,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -9714,6 +9728,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"EFA",
 				"FRAiF",
 				"FRHoF",
@@ -10135,6 +10150,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"FRAiF",
 				"NF"
 			],
@@ -10716,6 +10732,7 @@
 			"page": 285,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-FWtVC",
 				"FRAiF"
 			],
 			"size": [
@@ -11807,7 +11824,9 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
+				"BQDD",
 				"DrDe",
+				"DrDe-BD",
 				"FRAiF",
 				"HotB",
 				"UtHftLH"
@@ -11925,6 +11944,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -13321,6 +13341,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -13713,6 +13734,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BtS",
 				"FRAiF"
 			],
 			"size": [
@@ -14019,7 +14041,8 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-BD"
 			],
 			"size": [
 				"S"
@@ -14379,7 +14402,14 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"ABH",
+				"BQDD",
 				"DrDe",
+				"DrDe-ACfaS",
+				"DrDe-BD",
+				"DrDe-BtS",
+				"DrDe-DaS",
+				"DrDe-TDoN",
+				"DrDe-TWoO",
 				"FRAiF",
 				"HotB",
 				"LFL",
@@ -14471,6 +14501,7 @@
 			],
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DaS",
 				"HBTD"
 			],
 			"size": [
@@ -15108,6 +15139,7 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
+				"BQDD",
 				"FRAiF",
 				"FRHoF",
 				"HotB",
@@ -15195,6 +15227,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"FRAiF",
 				"FRHoF",
 				"ScoEE"
@@ -15597,6 +15630,7 @@
 			"page": 88,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -15698,6 +15732,7 @@
 			"page": 89,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DotSC",
 				"FRAiF"
 			],
 			"size": [
@@ -15882,6 +15917,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BtS",
 				"FRAiF"
 			],
 			"size": [
@@ -16190,6 +16226,7 @@
 			"page": 92,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"FRAiF",
 				"FRHoF"
 			],
@@ -17761,6 +17798,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-ACfaS",
 				"FRAiF"
 			],
 			"size": [
@@ -17949,6 +17987,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TDoN",
 				"FRAiF",
 				"FRHoF",
 				"HBTD"
@@ -18760,6 +18799,8 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-ACfaS",
+				"DrDe-TFV",
 				"EFA",
 				"FRAiF"
 			],
@@ -18903,6 +18944,8 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BD",
+				"DrDe-DaS",
 				"FRAiF",
 				"FRHoF"
 			],
@@ -19270,6 +19313,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-FWtVC",
 				"FRAiF"
 			],
 			"size": [
@@ -21304,6 +21348,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF",
 				"ScoEE"
 			],
@@ -21540,6 +21585,9 @@
 			"page": 120,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DotSC",
+				"DrDe-TFV",
+				"DrDe-TWoO",
 				"FRAiF",
 				"NF"
 			],
@@ -21705,6 +21753,8 @@
 			"page": 283,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
+				"DrDe-TWoO",
 				"FRAiF"
 			],
 			"size": [
@@ -22362,6 +22412,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-SD",
 				"FRAiF"
 			],
 			"size": [
@@ -22473,6 +22524,7 @@
 			"page": 127,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-ACfaS",
 				"FRAiF"
 			],
 			"size": [
@@ -22575,6 +22627,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DotSC",
 				"FRAiF"
 			],
 			"size": [
@@ -22889,6 +22942,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"FRAiF"
 			],
 			"size": [
@@ -23002,6 +23056,7 @@
 			"page": 130,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"FRAiF"
 			],
 			"size": [
@@ -23142,6 +23197,8 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-SD",
+				"DrDe-TWoO",
 				"FRAiF",
 				"FRHoF",
 				"NF"
@@ -23324,6 +23381,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"FRAiF"
 			],
 			"size": [
@@ -23527,6 +23585,7 @@
 			"page": 24,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-ACfaS",
 				"NF"
 			],
 			"size": [
@@ -23828,6 +23887,7 @@
 			"referenceSources": [
 				"BQGT",
 				"DrDe",
+				"DrDe-DaS",
 				"HotB"
 			],
 			"size": [
@@ -24081,7 +24141,8 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-BtS"
 			],
 			"size": [
 				"H"
@@ -25673,7 +25734,8 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-DaS"
 			],
 			"size": [
 				"M"
@@ -26353,6 +26415,8 @@
 			"page": 135,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-FWtVC",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -27825,7 +27889,8 @@
 				}
 			],
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-TDoN"
 			],
 			"size": [
 				"M"
@@ -28289,6 +28354,7 @@
 			"referenceSources": [
 				"BQGT",
 				"DrDe",
+				"DrDe-BD",
 				"FRAiF",
 				"HotB"
 			],
@@ -28404,7 +28470,8 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-BD"
 			],
 			"size": [
 				"M"
@@ -29200,7 +29267,9 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-ACfaS",
+				"DrDe-DaS"
 			],
 			"size": [
 				"M"
@@ -29334,6 +29403,8 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BD",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -29879,6 +29950,8 @@
 			"page": 158,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BtS",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -30137,6 +30210,8 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DaS",
+				"DrDe-TFV",
 				"EFA",
 				"FRAiF",
 				"FRHoF",
@@ -31443,6 +31518,8 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-ACfaS",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -32510,6 +32587,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -32881,6 +32959,8 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BD",
+				"DrDe-SD",
 				"FRAiF",
 				"NF"
 			],
@@ -33447,6 +33527,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-FWtVC",
 				"LFL",
 				"NF"
 			],
@@ -34269,6 +34350,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BtS",
 				"FRAiF",
 				"FRHoF",
 				"HBTD",
@@ -35662,6 +35744,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"FRAiF",
 				"NF"
 			],
@@ -36369,6 +36452,8 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BtS",
+				"DrDe-DotSC",
 				"EFA",
 				"FRAiF",
 				"FRHoF",
@@ -36876,6 +36961,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-SD",
 				"FRAiF",
 				"NF"
 			],
@@ -37178,6 +37264,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -37277,6 +37364,7 @@
 			"page": 203,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -37654,6 +37742,7 @@
 			],
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DaS",
 				"FRAiF",
 				"FRHoF"
 			],
@@ -38384,6 +38473,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-FWtVC",
 				"FRAiF",
 				"HotB"
 			],
@@ -38492,6 +38582,7 @@
 			"page": 214,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -39031,6 +39122,7 @@
 			"page": 217,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-FWtVC",
 				"FRAiF"
 			],
 			"size": [
@@ -39303,7 +39395,8 @@
 			"source": "XMM",
 			"page": 218,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-FWtVC"
 			],
 			"size": [
 				"M"
@@ -39400,7 +39493,8 @@
 			"source": "XMM",
 			"page": 217,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-FWtVC"
 			],
 			"size": [
 				"M"
@@ -39489,7 +39583,8 @@
 			"source": "XMM",
 			"page": 207,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-DaS"
 			],
 			"size": [
 				"S"
@@ -39683,6 +39778,9 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BD",
+				"DrDe-DotSC",
+				"DrDe-TWoO",
 				"FRAiF"
 			],
 			"size": [
@@ -39802,7 +39900,9 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-DotSC",
+				"DrDe-TWoO"
 			],
 			"size": [
 				"S",
@@ -41000,6 +41100,10 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BtS",
+				"DrDe-DaS",
+				"DrDe-TDoN",
+				"DrDe-TFV",
 				"EFA",
 				"FRAiF",
 				"HotB",
@@ -41094,6 +41198,7 @@
 			"page": 227,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"EFA",
 				"FRAiF",
 				"NF"
@@ -41703,6 +41808,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BD",
 				"EFA",
 				"FRAiF",
 				"HotB",
@@ -41808,6 +41914,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"HBTD",
 				"HotB"
 			],
@@ -42003,6 +42110,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TDoN",
 				"FRAiF"
 			],
 			"size": [
@@ -42388,6 +42496,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF",
 				"FRHoF",
 				"HotB"
@@ -42641,6 +42750,7 @@
 			"page": 236,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-ACfaS",
 				"FRAiF"
 			],
 			"size": [
@@ -42862,6 +42972,7 @@
 			"page": 237,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-ACfaS",
 				"EFA",
 				"FRAiF",
 				"LFL"
@@ -43233,6 +43344,7 @@
 			"page": 240,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BtS",
 				"FRAiF"
 			],
 			"size": [
@@ -43403,6 +43515,7 @@
 			"referenceSources": [
 				"ABH",
 				"DrDe",
+				"DrDe-BtS",
 				"EFA",
 				"FRAiF",
 				"ScoEE"
@@ -43651,6 +43764,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BtS",
 				"EFA",
 				"FRAiF",
 				"ScoEE"
@@ -44833,6 +44947,8 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-SD",
+				"DrDe-TDoN",
 				"EFA",
 				"FRAiF",
 				"FRHoF",
@@ -44991,6 +45107,8 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-ACfaS",
+				"DrDe-DaS",
 				"FRAiF"
 			],
 			"size": [
@@ -45307,6 +45425,7 @@
 			"treasure": [
 				"arcana"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/pseudodragon.opus"
@@ -45538,7 +45657,8 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-ACfaS"
 			],
 			"size": [
 				"G"
@@ -46010,6 +46130,7 @@
 			"environment": [
 				"planar, abyss"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/quasit.opus"
@@ -46457,7 +46578,8 @@
 				}
 			],
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-BtS"
 			],
 			"size": [
 				"T"
@@ -47118,6 +47240,7 @@
 			"srd52": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-SD",
 				"EFA"
 			],
 			"size": [
@@ -47247,6 +47370,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"EFA"
 			],
 			"size": [
@@ -47354,6 +47478,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BtS",
 				"FRAiF"
 			],
 			"size": [
@@ -48835,6 +48960,8 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DaS",
+				"DrDe-TDoN",
 				"FRAiF",
 				"FRHoF",
 				"HBTD"
@@ -49723,6 +49850,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-FWtVC",
 				"FRAiF"
 			],
 			"size": [
@@ -49839,6 +49967,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-SD",
 				"EFA",
 				"FRAiF",
 				"FRHoF"
@@ -50032,7 +50161,8 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-TWoO"
 			],
 			"size": [
 				"M"
@@ -50168,6 +50298,7 @@
 			],
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"EFA",
 				"FRAiF",
 				"HBTD",
@@ -50238,6 +50369,7 @@
 				"underdark",
 				"urban"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/skeleton.opus"
@@ -50339,6 +50471,7 @@
 			"treasure": [
 				"any"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/slaad-tadpole.opus"
@@ -50369,6 +50502,7 @@
 			"page": 208,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -50704,7 +50838,8 @@
 			"source": "XMM",
 			"page": 289,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-FWtVC"
 			],
 			"size": [
 				"M"
@@ -50869,6 +51004,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"FRAiF",
 				"HBTD"
 			],
@@ -50996,6 +51132,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DotSC",
 				"EFA",
 				"FRHoF"
 			],
@@ -51642,6 +51779,7 @@
 			"treasure": [
 				"arcana"
 			],
+			"familiar": true,
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -51892,7 +52030,8 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-TFV"
 			],
 			"size": [
 				"L"
@@ -52140,6 +52279,7 @@
 			"treasure": [
 				"armaments"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/sprite.opus"
@@ -53287,6 +53427,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"FRAiF",
 				"HBTD"
 			],
@@ -53522,6 +53663,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DaS",
 				"FRAiF"
 			],
 			"size": [
@@ -54849,6 +54991,8 @@
 			"referenceSources": [
 				"ABH",
 				"DrDe",
+				"DrDe-BD",
+				"DrDe-BtS",
 				"EFA",
 				"FRAiF"
 			],
@@ -54943,6 +55087,7 @@
 			"referenceSources": [
 				"ABH",
 				"DrDe",
+				"DrDe-TFV",
 				"EFA",
 				"FRAiF",
 				"NF",
@@ -55053,6 +55198,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF",
 				"FRHoF",
 				"LFL"
@@ -55454,6 +55600,8 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-SD",
+				"DrDe-TFV",
 				"FRAiF",
 				"NF"
 			],
@@ -55650,6 +55798,7 @@
 			"page": 43,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DaS",
 				"FRAiF",
 				"FRHoF"
 			],
@@ -56380,6 +56529,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"FRAiF"
 			],
 			"size": [
@@ -56604,8 +56754,7 @@
 				"A",
 				"B",
 				"N",
-				"P",
-				"R"
+				"P"
 			],
 			"spellcastingTags": [
 				"O"
@@ -56896,7 +57045,6 @@
 				"C",
 				"N",
 				"P",
-				"R",
 				"S"
 			],
 			"miscTags": [
@@ -57065,7 +57213,6 @@
 				"A",
 				"N",
 				"P",
-				"R",
 				"S"
 			],
 			"miscTags": [
@@ -57303,7 +57450,6 @@
 			"damageTags": [
 				"A",
 				"N",
-				"R",
 				"S"
 			],
 			"damageTagsSpell": [
@@ -57352,7 +57498,8 @@
 				}
 			],
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-DaS"
 			],
 			"size": [
 				"T"
@@ -57399,6 +57546,7 @@
 				"hill",
 				"swamp"
 			],
+			"familiar": true,
 			"senseTags": [
 				"B"
 			],
@@ -57419,6 +57567,7 @@
 			"page": 44,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DaS",
 				"FRAiF"
 			],
 			"size": [
@@ -57609,6 +57758,7 @@
 			"page": 126,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-BtS",
 				"FRAiF"
 			],
 			"size": [
@@ -58320,6 +58470,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-ACfaS",
 				"FFotR",
 				"FRAiF"
 			],
@@ -58428,6 +58579,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-FWtVC",
 				"FRAiF",
 				"FRHoF"
 			],
@@ -59876,7 +60028,9 @@
 			"source": "XMM",
 			"page": 185,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-ACfaS",
+				"DrDe-FWtVC"
 			],
 			"size": [
 				"S"
@@ -59987,6 +60141,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-SD",
 				"FRAiF",
 				"NF"
 			],
@@ -60264,6 +60419,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TWoO",
 				"FRAiF",
 				"FRHoF",
 				"HBTD"
@@ -60396,6 +60552,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-SD",
 				"EFA",
 				"FRAiF"
 			],
@@ -61212,7 +61369,8 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-FWtVC"
 			],
 			"size": [
 				"L"
@@ -61349,7 +61507,8 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-TDoN"
 			],
 			"size": [
 				"L"
@@ -61913,6 +62072,7 @@
 			"basicRules2024": true,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-TFV",
 				"FRAiF"
 			],
 			"size": [
@@ -62035,6 +62195,7 @@
 			"page": 258,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-SD",
 				"NF"
 			],
 			"size": [
@@ -62697,6 +62858,7 @@
 			"page": 343,
 			"referenceSources": [
 				"DrDe",
+				"DrDe-DaS",
 				"FRAiF"
 			],
 			"size": [
@@ -63002,7 +63164,8 @@
 			"source": "XMM",
 			"page": 344,
 			"referenceSources": [
-				"DrDe"
+				"DrDe",
+				"DrDe-TFV"
 			],
 			"size": [
 				"M"
@@ -63171,7 +63334,10 @@
 				}
 			],
 			"referenceSources": [
+				"BQDD",
 				"DrDe",
+				"DrDe-DaS",
+				"DrDe-TWoO",
 				"EFA",
 				"FRAiF",
 				"HBTD",
