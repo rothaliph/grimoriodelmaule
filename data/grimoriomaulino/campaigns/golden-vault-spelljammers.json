@@ -22,14 +22,7 @@
 					"id": "haggar",
 					"name": "Haggar",
 					"html": "haggar.html"
-				}
-			]
-		},
-		{
-			"id": "aliados",
-			"name": "Aliados",
-			"paginas": [
-				{
+				},{
 					"id": "gaston-labelle",
 					"name": "Gaston Labelle",
 					"html": "gaston-labelle.html"
@@ -39,6 +32,13 @@
 					"name": "Kyuzo",
 					"html": "kyuzo.html"
 				}
+			]
+		},
+		{
+			"id": "aliados",
+			"name": "Aliados",
+			"paginas": [
+				
 			]
 		}
 	]

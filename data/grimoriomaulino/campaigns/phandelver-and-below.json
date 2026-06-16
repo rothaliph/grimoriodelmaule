@@ -17,14 +17,7 @@
 					"id": "connery",
 					"name": "Connery Sunscar",
 					"html": "connery.html"
-				}
-			]
-		},
-		{
-			"id": "personajes-secundarios",
-			"name": "Personajes secundarios",
-			"paginas": [
-				{
+				},{
 					"id": "sachi",
 					"name": "Sachi",
 					"html": "sachi.html"
@@ -34,6 +27,13 @@
 					"name": "Vellum Bellorosso",
 					"html": "vellum-bellorosso.html"
 				}
+			]
+		},
+		{
+			"id": "personajes-secundarios",
+			"name": "Personajes secundarios",
+			"paginas": [
+				
 			]
 		}
 	]
