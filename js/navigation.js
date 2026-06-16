@@ -1088,3 +1088,5 @@ NavBar.NodeAccordion = class extends NavBar.Node {
 };
 
 NavBar.init();
+
+//SAFEGUARD
