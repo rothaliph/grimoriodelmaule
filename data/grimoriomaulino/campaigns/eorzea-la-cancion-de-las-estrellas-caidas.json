@@ -32,6 +32,10 @@
 					"id": "mila",
 					"name": "Mila Aurealis",
 					"image": "mila.jpeg"
+				},{	
+					"id": "populus",
+					"name": "Populus Tristerix",
+					"image": "populus_tristerix.jpeg"
 				},{
 					"id": "tristan",
 					"name": "Tristán Velmor",

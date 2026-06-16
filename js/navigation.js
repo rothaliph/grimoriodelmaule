@@ -135,6 +135,7 @@ class NavBar {
 
 		this._addElement_dropdown({category: NavBar._CAT_UTILITIES});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "search.html", aText: "Search"});
+		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES], page: "https://grimoriodelmaule.cl/cartografo/admin/login", aText: "Cámara del Cartógrafo", isExternal: true, isExternalMark: true});
 		this._addElement_dropdown({keyPath: [NavBar._CAT_UTILITIES], category: NavBar._CAT_CALCULATORS, isSide: true, page: "jumpcalculators.html"});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES, NavBar._CAT_CALCULATORS], page: "jumpcalculators.html#salto-largo", aText: "Calculadora de Salto Largo"});
 		this._addElement_li({keyPath: [NavBar._CAT_UTILITIES, NavBar._CAT_CALCULATORS], page: "jumpcalculators.html#salto-alto", aText: "Calculadora de Salto Alto"});
@@ -601,7 +602,7 @@ class NavBar {
 
 			a.setAttribute("aria-haspopup", "true");
 		}
-		a.innerHTML = `${category} <span class="caret ${isSide ? "caret--right" : ""}"></span>`;
+		a.innerHTML = `${category} <span class="ve-caret ${isSide ? "ve-caret--right" : ""}"></span>`;
 
 		const ul = document.createElement("ul");
 		ul.setAttribute("role", "menu");

@@ -1,3 +1,5 @@
+import {GrimorioMaulinoUtil} from "./grimorio-maulino-utils.js";
+
 const PATH_INDEX = "data/grimoriomaulino/index.json";
 
 class GrimorioMaulino {
@@ -41,15 +43,11 @@ class GrimorioMaulino {
 		const campaignMeta = this._getCampaignMetaById(campaignId) || this._getFirstCampaignMeta();
 		if (!campaignMeta?.path) return;
 
-		const response = await fetch(campaignMeta.path);
-		if (!response.ok) throw new Error(`No se pudo cargar ${campaignMeta.path}`);
-		this._campaign = await response.json();
+		this._campaign = await GrimorioMaulinoUtil.pFetchJsonFresh(campaignMeta.path);
 	}
 
 	async _pLoadIndex () {
-		const response = await fetch(PATH_INDEX);
-		if (!response.ok) throw new Error(`No se pudo cargar ${PATH_INDEX}`);
-		return response.json();
+		return GrimorioMaulinoUtil.pFetchJsonFresh(PATH_INDEX);
 	}
 
 	_initHashHandling () {

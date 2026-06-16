@@ -1,3 +1,5 @@
+import {GrimorioMaulinoUtil} from "./grimorio-maulino-utils.js";
+
 const PATH_INDEX = "data/grimoriomaulino/index.json";
 const MAX_DESCRIPTION_LENGTH = 1000;
 
@@ -13,18 +15,16 @@ class GrimorioMaulinoIndexPage {
 	}
 
 	async _pLoadIndex () {
-		const response = await fetch(PATH_INDEX);
-		if (!response.ok) throw new Error(`No se pudo cargar ${PATH_INDEX}`);
-		return response.json();
+		return GrimorioMaulinoUtil.pFetchJsonFresh(PATH_INDEX);
 	}
 
 	async _pLoadCampaigns (index) {
 		const out = [];
 		for (const campaignMeta of index?.campaigns || []) {
 			if (!campaignMeta.path) continue;
-			const response = await fetch(campaignMeta.path);
-			if (!response.ok) continue;
-			const campaign = await response.json();
+			const campaign = await GrimorioMaulinoUtil.pFetchJsonFresh(campaignMeta.path)
+				.catch(() => null);
+			if (!campaign) continue;
 			out.push(campaign);
 		}
 		return out;
