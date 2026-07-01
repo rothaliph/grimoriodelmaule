@@ -67,13 +67,17 @@ class Board {
 	}
 
 	getInitialWidth () {
-		const scW = this.eleScreen.outerWidthe();
-		return Math.floor(scW / 360);
+		const scW = this.eleScreen.outerWidthe()
+			|| this.eleScreen.getBoundingClientRect?.().width
+			|| Math.max(360, (globalThis.window?.innerWidth || 0) - 40);
+		return Math.max(Math.floor(scW / 360), 1);
 	}
 
 	getInitialHeight () {
-		const scH = this.eleScreen.outerHeighte();
-		return Math.floor(scH / 280);
+		const scH = this.eleScreen.outerHeighte()
+			|| this.eleScreen.getBoundingClientRect?.().height
+			|| Math.max(280, (globalThis.window?.innerHeight || 0) - 120);
+		return Math.max(Math.floor(scH / 280), 1);
 	}
 
 	getNextId () {
