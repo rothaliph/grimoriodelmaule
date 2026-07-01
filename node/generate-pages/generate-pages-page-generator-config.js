@@ -46,9 +46,12 @@ class _PageGeneratorDmscreen extends PageGeneratorGeneric {
 		"utils-p2p.js",
 	];
 
+	_scripts = [
+		"dmscreen-loader.js",
+	];
+
 	_scriptsModules = [
 		"render-map.js",
-		"dmscreen.js",
 	];
 }
 
