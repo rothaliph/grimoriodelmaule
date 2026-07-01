@@ -3549,7 +3549,7 @@ class AdventureOrBookView {
 	}
 }
 
-window.addEventListener("load", () => {
+const doLoad = () => {
 	// expose it for dbg purposes
 	window.DM_SCREEN = new Board();
 	Renderer.hover.bindDmScreen(window.DM_SCREEN);
@@ -3559,4 +3559,7 @@ window.addEventListener("load", () => {
 			es(`.dm-screen-loading .initial-message`)?.txt("Failed!");
 			setTimeout(() => { throw err; });
 		});
-});
+};
+
+if (document.readyState === "complete") doLoad();
+else window.addEventListener("load", doLoad);
