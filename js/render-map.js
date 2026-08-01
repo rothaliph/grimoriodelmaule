@@ -209,6 +209,15 @@ export class RenderMap {
 	static _getEleWindowContent ({mapData, fnGetContainerDimensions = null}) {
 		const X = 0;
 		const Y = 1;
+		const editMeta = {
+			mode: null,
+			region: null,
+			ixVertex: null,
+			pointStart: null,
+			pointsStart: null,
+			isDragging: false,
+			isSuppressClick: false,
+		};
 
 		const cvs = ee`<canvas class="ve-p-0 ve-m-0"></canvas>`;
 		cvs.width = mapData.width;
@@ -322,6 +331,20 @@ export class RenderMap {
 				ctx.stroke();
 				ctx.closePath();
 			});
+
+			if (editMeta.mode !== "vertices") return;
+
+			mapData.regions.forEach(region => region.points.forEach(pt => {
+				pt = getZoomedPoint(pt);
+				ctx.beginPath();
+				ctx.arc(pt[X], pt[Y], 6, 0, 2 * Math.PI);
+				ctx.fillStyle = "#fff";
+				ctx.fill();
+				ctx.lineWidth = 2;
+				ctx.strokeStyle = "#337ab7";
+				ctx.stroke();
+				ctx.closePath();
+			}));
 		};
 
 		const getEventPoint = evt => {
@@ -349,8 +372,70 @@ export class RenderMap {
 			fnsCleanup: [],
 		};
 
+		const getNearestVertexMeta = point => {
+			const maxDistance = 10 / mapData.zoomLevel;
+			let nearest = null;
+
+			mapData.regions.forEach(region => region.points.forEach((vertex, ixVertex) => {
+				const distance = Math.hypot(vertex[X] - point[X], vertex[Y] - point[Y]);
+				if (distance > maxDistance || (nearest && nearest.distance <= distance)) return;
+				nearest = {region, ixVertex, distance};
+			}));
+
+			return nearest;
+		};
+
+		const doNotifyRegionsChange = () => {
+			mapData.fnOnRegionsChange?.(mapData.regions);
+			cvs.dispatchEvent(new CustomEvent("mapRegionsChange", {detail: {regions: mapData.regions}}));
+		};
+
+		const onEditMouseMove = evt => {
+			if (!editMeta.region || !editMeta.pointStart) return;
+
+			const point = getEventPoint(evt);
+			const diff = [point[X] - editMeta.pointStart[X], point[Y] - editMeta.pointStart[Y]];
+			if (!editMeta.isDragging && Math.hypot(...diff) < 1) return;
+
+			editMeta.isDragging = true;
+			editMeta.isSuppressClick = true;
+
+			if (editMeta.mode === "move") {
+				const xs = editMeta.pointsStart.map(it => it[X]);
+				const ys = editMeta.pointsStart.map(it => it[Y]);
+				const diffClamped = [
+					Math.max(-Math.min(...xs), Math.min(mapData.width - Math.max(...xs), diff[X])),
+					Math.max(-Math.min(...ys), Math.min(mapData.height - Math.max(...ys), diff[Y])),
+				];
+				editMeta.region.points = editMeta.pointsStart.map(it => [it[X] + diffClamped[X], it[Y] + diffClamped[Y]]);
+			} else {
+				editMeta.region.points[editMeta.ixVertex] = [
+					Math.max(0, Math.min(mapData.width, point[X])),
+					Math.max(0, Math.min(mapData.height, point[Y])),
+				];
+			}
+
+			paint();
+		};
+
+		const onEditMouseUp = () => {
+			if (editMeta.isDragging) doNotifyRegionsChange();
+			editMeta.region = null;
+			editMeta.ixVertex = null;
+			editMeta.pointStart = null;
+			editMeta.pointsStart = null;
+			editMeta.isDragging = false;
+			cvs.style.cursor = editMeta.mode ? "grab" : "";
+		};
+
 		cvs
 			.onn("click", async evt => {
+				if (editMeta.isSuppressClick) {
+					editMeta.isSuppressClick = false;
+					return;
+				}
+				if (editMeta.mode) return;
+
 				const clickPt = getEventPoint(evt);
 
 				const intersectedRegions = RenderMap._getIntersectedRegions(mapData.regions, clickPt);
@@ -398,6 +483,20 @@ export class RenderMap {
 				);
 			})
 			.onn("mousedown", evt => {
+				if (evt.button === 0 && editMeta.mode) {
+					const point = getEventPoint(evt);
+					const vertexMeta = editMeta.mode === "vertices" ? getNearestVertexMeta(point) : null;
+					const region = vertexMeta?.region || RenderMap._getIntersectedRegions(mapData.regions, point)[0];
+					if (!region || (editMeta.mode === "vertices" && !vertexMeta)) return;
+
+					editMeta.region = region;
+					editMeta.ixVertex = vertexMeta?.ixVertex;
+					editMeta.pointStart = point;
+					editMeta.pointsStart = region.points.map(it => [...it]);
+					cvs.style.cursor = "grabbing";
+					return;
+				}
+
 				if (evt.button !== 2) return; // RMB
 
 				cvs.style.cursor = "grabbing";
@@ -463,7 +562,10 @@ export class RenderMap {
 					.onn("mousemove", onMouseMoveBody)
 					// Bind a document-wide handler to block the context menu at the end of the pan
 					.onn(`contextmenu`, onContextMenuBody);
-			});
+			})
+			.onn("mousemove", onEditMouseMove)
+			.onn("mouseup", onEditMouseUp)
+			.onn("mouseleave", onEditMouseUp);
 
 		const btnZoomMinus = ee`<button class="ve-btn ve-btn-xs ve-btn-default"><span class="glyphicon glyphicon-zoom-out"></span> Zoom Out</button>`
 			.onn("click", () => zoomChange("out"));
@@ -476,6 +578,21 @@ export class RenderMap {
 
 		const btnZoomFit = ee`<button class="ve-btn ve-btn-xs ve-btn-default"><span class="glyphicon glyphicon-search"></span> Zoom to Fit</button>`
 			.onn("click", () => zoomChange("fit"));
+
+		const btnEditMove = ee`<button class="ve-btn ve-btn-xs ve-btn-default ve-ml-2" title="Move an area by dragging it on the map"><span class="glyphicon glyphicon-move"></span> Move Areas</button>`;
+		const btnEditVertices = ee`<button class="ve-btn ve-btn-xs ve-btn-default" title="Edit an area's vertices by dragging its handles"><span class="glyphicon glyphicon-edit"></span> Edit Vertices</button>`;
+
+		const setEditMode = mode => {
+			editMeta.mode = editMeta.mode === mode ? null : mode;
+			editMeta.isSuppressClick = false;
+			cvs.style.cursor = editMeta.mode ? "grab" : "";
+			btnEditMove.toggleClass("ve-btn-primary", editMeta.mode === "move").toggleClass("ve-btn-default", editMeta.mode !== "move");
+			btnEditVertices.toggleClass("ve-btn-primary", editMeta.mode === "vertices").toggleClass("ve-btn-default", editMeta.mode !== "vertices");
+			paint();
+		};
+
+		btnEditMove.onn("click", () => setEditMode("move"));
+		btnEditVertices.onn("click", () => setEditMode("vertices"));
 
 		const btnHelp = ee`<button class="ve-btn ve-btn-xs ve-btn-default ve-ml-auto ve-mr-4" title="Help"><span class="glyphicon glyphicon-info-sign"></span> Help</button>`
 			.onn("click", evt => {
@@ -492,6 +609,8 @@ export class RenderMap {
 						<li><kbd>SHIFT</kbd>-left-click to jump to an area.</li>
 						<li>Right-click and drag to pan.</li>
 						<li><kbd>CTRL</kbd>-scroll to zoom.</li>
+						<li>Use <b>Move Areas</b>, then drag an area to reposition it.</li>
+						<li>Use <b>Edit Vertices</b>, then drag a circular handle to reshape an area.</li>
 					</ul>
 				`);
 			});
@@ -522,6 +641,10 @@ export class RenderMap {
 				</div>
 				${btnZoomReset}
 				${btnZoomFit}
+				<div class="ve-btn-group ve-flex">
+					${btnEditMove}
+					${btnEditVertices}
+				</div>
 				${btnHelp}
 			</div>
 			${wrpCvs}
